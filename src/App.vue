@@ -1,23 +1,10 @@
 <template>
-  <div>
-    <nav-bar/>
-    <router-view></router-view>
-  </div>
-    
+  <router-view />
 </template>
-
 <script>
-import { defineComponent } from "vue";
-import NavBar from "./components/NavBar.vue"
-import store from './store'
-
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  components: { NavBar },
-  name: 'App',
-  async mounted() {
-    await store.dispatch("apiDefinition/getApiDef");
-  }
-});
-
+  name: 'App'
+})
 </script>
