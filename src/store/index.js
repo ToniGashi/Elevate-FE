@@ -1,5 +1,6 @@
-import { createStore } from "vuex";
-import apiDefinition from "./apiDefinition";
+import { store } from 'quasar/wrappers'
+import { createStore } from 'vuex'
+import user from './user'
 
 /*
  * If not building with SSR mode, you can
@@ -9,12 +10,17 @@ import apiDefinition from "./apiDefinition";
  * async/await or return a Promise which resolves
  * with the Store instance.
  */
-const Store = createStore({
-  modules: {
-    apiDefinition
-  },
-  // enable strict mode (adds overhead!)
-  // for dev mode and --debug builds only
-});
 
-export default Store;
+export default store(function (/* { ssrContext } */) {
+  const Store = createStore({
+    modules: {
+      user
+    },
+
+    // enable strict mode (adds overhead!)
+    // for dev mode and --debug builds only
+    strict: process.env.DEBUGGING
+  })
+
+  return Store
+})
