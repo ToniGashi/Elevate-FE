@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <ul v-for="startup in list" :key="startup.id">
-            <li style="list-style-type: none;"><startup-list-item :currentStartup="startup"></startup-list-item></li>
-        </ul>
-    </div>
+<div>
+    <ul v-for="project in mockProjectList" :key="project.id">
+        <li style="list-style-type: none;"><project-list-item :currentProject="project"></project-list-item></li>
+    </ul>
+</div>
 </template>
 
 <script>
-    import StartupListItem from './ProjectListItem.vue';
-    import mockProjectList from './mockData';
-    export default ({
-        components: { StartupListItem },
-        data(){
-          return {
-            mockProjectList
-          }
-        },
-        mounted() {
-            console.log("from startup list item: ", this.list);
-        }
-    })
+import ProjectListItem from './ProjectListItem.vue'
+import mockProjectList from './mockData'
+export default ({
+  components: { ProjectListItem },
+  data () {
+    return {
+      mockProjectList
+    }
+  },
+  mounted () {
+    console.log('from project list: ', this.mockProjectList)
+  }
+})
 </script>

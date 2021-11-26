@@ -50,7 +50,8 @@ export default {
       links: [
         { to: '/how-it-works', label: 'How it works' },
         { to: '/about', label: 'About' },
-        { to: '/customer-support/contact', label: 'Contact us' }
+        { to: '/customer-support/contact', label: 'Contact us' },
+        { to: '/projects', label: 'Projects' }
       ]
 
     }

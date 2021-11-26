@@ -1,0 +1,110 @@
+@import "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-97/variables.less";
+@import "https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/mixins.less";
+
+.card {
+  float: left; margin: 0 40px;
+  width: 340px;
+  background: #111;
+  height: 480px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4);
+  transition: all .2s ease;
+  overflow: hidden;
+}
+
+.card-meta {
+  position: absolute;
+  height: 60%;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: .2s all ease;
+}
+
+.tag,
+.date {
+  background: #E74C3C;
+  color:#fff;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 8px 12px;
+  position: absolute;
+  font-weight: bold;
+}
+
+.date {
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.card-details {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60%;
+  bottom: 0;
+  padding: 20px;
+  transition: .2s all ease;
+}
+
+.centered {
+  text-align: center;
+}
+
+.post-module {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-width: 270px;
+  height: 470px;
+}
+
+.mottoStyles {
+  margin: 0;
+  padding: 0 0 20px;
+  color: #e74c3c;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.pStyles {
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.8em;
+  opacity: 1;
+  transition: .4s all ease;
+}
+
+.post-meta {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: #fff;
+color: #999;
+padding: 30px;
+}
+
+.card:hover,
+.card.hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,.4);
+}
+
+.card-image {
+  transform: scale(1.5);
+  opacity: .6;
+}
+
+.card-meta {
+  height: 30%;
+}
+
+.card-details {
+  top: 30%;
+}
