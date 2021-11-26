@@ -48,8 +48,7 @@ export default {
 
       label: document.title,
       links: [
-        { to: '/how-it-works', label: 'How it works' },
-        { to: '/about', label: 'About' },
+        { to: '/about-us', label: 'About' },
         { to: '/contact', label: 'Contact us' }
       ]
 
@@ -62,21 +61,25 @@ export default {
 
 <style lang="sass" scoped>
 
+$transition: transform 0.35s linear
+$transform-origin: left
+$transform-style: flat
+
 .home-brand
-  transition: transform 0.35s linear
-  transform-origin: left
-  transform-style: flat
+  transition: $transition
+  transform-origin: $transform-origin
+  transform-style: $transform-style
   transform: scale(1)
 
 .home-brand-shrink
-  transition: transform 0.35s linear
-  transform-origin: left
-  transform-style: flat
+  transition: $transition
+  transform-origin: $transform-origin
+  transform-style: $transform-style
   transform: scale(0.7)
 
 .regular-brand
-  transform-origin: left
-  transform-style: flat
+  transform-origin: $transform-origin
+  transform-style: $transform-style
   transform: scale(0.7)
 
 </style>

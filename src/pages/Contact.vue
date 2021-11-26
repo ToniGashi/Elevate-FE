@@ -1,17 +1,23 @@
 <template>
     <q-page padding>
-        <div className='container'>
-            <div className='centered q-mb-xl'>
-                <h2 className='q-mb-lg'>Have a question?</h2>
-                <span className='text-subtitle2'>For us, customer happiness is the number one priority, so we make it extremely easy for you to contact us. Just fill out the form and we will get back to you as soon as possible.</span>
+        <div class="container">
+            <div class="centered q-mb-xl">
+                <h2 class="q-mb-lg">Have a question?</h2>
+                <span class="text-subtitle2">For us, customer happiness is the number one priority,
+                  so we make it extremely easy for you to contact us.
+                  Just fill out the form and we will get back to you as soon as possible.
+                </span>
             </div>
-            <div class='row justify-evenly'>
+            <div class="row justify-evenly">
                 <div>
-                    <q-icon name="mail_outline" style="font-size: 350px; color: #212529"></q-icon>
+                    <q-icon name="mail_outline"
+                            style="font-size: 350px;
+                            color: #212529">
+                    </q-icon>
                     <br>
-                    <div className='q-ml-xl'>
-                      <h4 className='q-my-sm'>Or call us: </h4>
-                      <span className='phone'>Our Phone number: <b>+359 232 4892</b></span>
+                    <div class="q-ml-xl">
+                      <h4 class="q-my-sm">Or call us: </h4>
+                      <span class="phone">Our Phone number: <b>+359 232 4892</b></span>
                     </div>
                 </div>
                 <div>
@@ -32,7 +38,7 @@
 <script>
 export default {
   name: 'Contact',
-  data: function () {
+  data () {
     return {
       name: '',
       email: '',
@@ -44,78 +50,57 @@ export default {
     }
   },
   methods: {
-    onSubmit (e) {
+    onSubmit () {
       const fetchData = {
-        method: 'POST',
-        body: JSON.stringify({
-          // eslint-disable-next-line
-          "fullName": this.name,
-          // eslint-disable-next-line
-          "email": this.email,
-          // eslint-disable-next-line
-          "message": this.text
-        }),
-        headers: {
-          // eslint-disable-next-line
-          'Content-Type': 'application/json'
-        }
+        fullName: this.name,
+        email: this.email,
+        message: this.text
       }
 
-      console.log(fetchData)
-
-      fetch('http://localhost:5000/api/emails/contact', fetchData)
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      this.$axios.post('/api/emails/contact', fetchData)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+
 q-input[type='text'],
-q-select{
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+q-select
+  width: 100%
+  padding: 12px
+  border: 1px solid #ccc
+  margin-top: 6px
+  margin-bottom: 16px
+  resize: vertical
 
-.frame {
-  width: 300px;
-  height: 250px;
-  border-radius: 5px;
-}
+.frame
+  width: 300px
+  height: 250px
+  border-radius: 5px
 
-h2 {
-  font-family: 'Open Sans Condensed';
-  font-size: 62px;
-}
+h2
+  font-family: 'Open Sans Condensed', serif
+  font-size: 62px
 
-.centered {
-  text-align: center;
-}
+.centered
+  text-align: center
 
-.container {
-  background-color: #a6e9a6;
-  border: 2px solid rgba(0, 0, 0, 0.315);
-  border-radius: 10px;
-  padding: 10px;
-  height: 85vh;
-}
+.container
+  background-color: #a6e9a6
+  border: 2px solid rgba(0, 0, 0, 0.315)
+  border-radius: 10px
+  padding: 10px
+  height: 85vh
 
-iframe {
-  position: relative;
-}
+iframe
+  position: relative
 
-.phone {
-  color: rgb(1, 10, 14);
-  text-decoration: underline;
-  margin-left: 0.2rem;
-}
+.phone
+  color: rgb(1, 10, 14)
+  text-decoration: underline
+  margin-left: 0.2rem
+
 </style>
