@@ -6,7 +6,14 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'about-us', component: () => import('pages/About.vue') },
-      { path: 'contact', component: () => import('pages/Contact.vue') }
+      { path: 'contact', component: () => import('pages/Contact.vue') },
+      {
+        path: 'projects',
+        component: () => import('pages/ProjectMarketplace.vue'),
+        children: [
+          { path: ':id(\\d+)', component: () => import('pages/Project.vue') }
+        ]
+      }
     ]
   },
 
