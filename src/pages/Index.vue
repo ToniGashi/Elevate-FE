@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  name: 'Index',
+  name: 'Index'/*,
   created () {
     this.$store.dispatch('user/getAllUsers')
       .then(() => console.log(this.$store.getters['user/getUsers']))
-  }
+  } */
 }
 </script>
