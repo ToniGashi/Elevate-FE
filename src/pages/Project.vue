@@ -108,7 +108,7 @@ export default {
   data () {
     return {
       tab: 'mails',
-      currentProject: projectList.find(project => project.id === this.$route.params.id)
+      currentProject: projectList.find(project => Number(project.id) === Number(this.$route.params.id))
     }
   },
   methods: {

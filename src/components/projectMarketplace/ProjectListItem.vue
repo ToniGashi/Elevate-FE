@@ -17,7 +17,6 @@
         </div>
       </q-scroll-area>
     </router-link>
-    <router-view></router-view>
   </q-card>
 </template>
 
