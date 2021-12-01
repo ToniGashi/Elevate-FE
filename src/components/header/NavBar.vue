@@ -38,7 +38,7 @@
 
 <script>
 
-import NavLink from 'components/header/NavLink'
+import NavLink from 'components/navigation/NavLink'
 export default {
   name: 'NavBar',
   components: { NavLink },
