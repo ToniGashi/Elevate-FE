@@ -80,7 +80,7 @@ module.exports = configure(function (ctx) {
       port: 8080,
       proxy: {
         '/api': {
-          target: `http://localhost:${process.env.API_PORT}/api`,
+          target: process.env.API_URL,
           changeOrigin: true,
           pathRewrite: {
             '^/api': ''
