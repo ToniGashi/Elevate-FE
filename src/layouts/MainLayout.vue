@@ -1,7 +1,7 @@
 <template>
   <q-layout :view="path === '/'
-            ? 'hhh Lpr fFf'
-            : 'hHh Lpr fFf'"
+            ? 'hhh Lpr fff'
+            : 'hHh Lpr fff'"
             @scroll="determineOffset">
     <!-- Be sure to play with the Layout demo on docs -->
 
