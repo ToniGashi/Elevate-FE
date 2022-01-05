@@ -11,9 +11,10 @@
       :key="input.id"
       outlined
       color="secondary"
-      input-style="font-size:16px"
+      bg-color="white"
+      input-style="font-size:17px"
       :input-class="[
-        'text-placeholder',
+        'form-input',
         'text-weight-bolder'
       ]"
       :name="input.name"
@@ -27,7 +28,7 @@
     <div>
 
       <standard-button size="lg"
-                       padding="md 40px"
+                       padding="sm 40px"
                        type="submit"
                        unelevated
                        color="secondary"
@@ -36,39 +37,6 @@
     </div>
 
   </q-form>
-<!--  <div class="container">
-    <div class="centered q-mb-xl">
-      <h2 class="q-mb-lg">Have a question?</h2>
-      <span class="text-subtitle2">
-        For us, customer happiness is the number one priority,
-        so we make it extremely easy for you to contact us.
-        Just fill out the form and we will get back to you as soon as possible.
-      </span>
-    </div>
-    <div class="row justify-evenly">
-      <div>
-        <q-icon name="mail_outline"
-                style="font-size: 350px;
-                color: #212529">
-        </q-icon>
-        <br>
-        <div class="q-ml-xl">
-          <h4 class="q-my-sm">Or call us: </h4>
-          <span class="phone">Our Phone number: <b>+359 232 4892</b></span>
-        </div>
-      </div>
-      <div>
-        <q-form @submit='onSubmit'>
-          <q-input type='text' v-model='name' placeholder='Enter your name here...' style='width:600px'/>
-          <q-input type='text' v-model='email' placeholder='Enter your email here...' class='q-mt-md'/>
-          <q-select v-model='countrySelected' :options='countryOptions' label='Country' class='q-mt-md'/>
-          <q-select v-model='citySelected' :options='cityOptions' label='City' class='q-mt-md'/>
-          <q-input v-model="text" type='textarea' filled placeholder='Write your text here..' class='q-mt-md'/>
-          <q-btn color='secondary' type='Submit' label='Submit' class='q-mt-md'/>
-        </q-form>
-      </div>
-    </div>
-  </div>-->
 
 </template>
 
@@ -176,6 +144,6 @@ export default {
 <style lang="sass" scoped>
 
 .q-form
-  max-width: 600px
+  width: 550px
 
 </style>
