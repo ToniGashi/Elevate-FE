@@ -4,7 +4,6 @@
     @submit="onSubmit"
     @reset="onReset"
     ref="contactForm"
-    style="max-width: 400px"
     class="q-gutter-md q-mx-auto text-center">
 
     <q-input
@@ -18,8 +17,7 @@
       :type="input.type"
       :placeholder="input.placeholder"
       :lazy-rules="input.lazy_rules"
-      :rules="input.rules"
-    />
+      :rules="input.rules" />
 
     <div>
       <q-btn label="Submit" type="submit" color="secondary"/>
@@ -63,6 +61,11 @@
 </template>
 
 <script>
+
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable brace-style */
+/* eslint-disable no-mixed-operators */
+
 export default {
   name: 'ContactForm',
   data () {
@@ -77,7 +80,6 @@ export default {
           placeholder: 'Your name *',
           lazy_rules: true,
           rules: [
-            // eslint-disable-next-line no-mixed-operators
             val => val && val.length > 0 ||
             'Please type your name'
           ]
@@ -90,7 +92,6 @@ export default {
           placeholder: 'Your email *',
           lazy_rules: true,
           rules: [
-            // eslint-disable-next-line no-mixed-operators
             val => val && val.length > 0 ||
             'Please type your email'
           ]
@@ -103,7 +104,6 @@ export default {
           placeholder: 'Your message *',
           lazy_rules: true,
           rules: [
-            // eslint-disable-next-line no-mixed-operators
             val => val && val.length > 0 ||
               'Please type your message'
           ]
@@ -118,21 +118,34 @@ export default {
     },
 
     onSubmit () {
-      const fullName = this.inputs.find(input => input.name === 'fullName')
+      let fullName
+      let email
+      let message
 
-      const email = this.inputs.find(input => input.name === 'email')
+      for (let i = 0; i < this.inputs.length; i++) {
+        if (this.inputs[i].name === 'fullName')
+        { fullName = this.inputs[i].value }
 
-      const message = this.inputs.find(input => input.name === 'message')
+        else if (this.inputs[i].name === 'email')
+        { email = this.inputs[i].value }
+
+        else if (this.inputs[i].name === 'message')
+        { message = this.inputs[i].value }
+      }
 
       const fetchData = {
         fullName: fullName,
         email: email,
         message: message
       }
+
       this.$axios.post('/api/emails/contact', fetchData)
         .then(response => {
           console.log(response)
           this.$refs.contactForm.reset()
+          fullName = null
+          email = null
+          message = null
         })
         .catch(err => console.log(err))
     },
@@ -145,5 +158,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+.q-form
+  max-width: 600px
+
+.q-field__native
+  color: $muted
 
 </style>
