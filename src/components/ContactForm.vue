@@ -11,6 +11,11 @@
       :key="input.id"
       outlined
       color="secondary"
+      input-style="font-size:16px"
+      :input-class="[
+        'text-placeholder',
+        'text-weight-bolder'
+      ]"
       :name="input.name"
       :model-value="input.value"
       @update:model-value="updateValue(index, $event)"
@@ -20,7 +25,14 @@
       :rules="input.rules" />
 
     <div>
-      <q-btn label="Submit" type="submit" color="secondary"/>
+
+      <standard-button size="lg"
+                       padding="md 40px"
+                       type="submit"
+                       unelevated
+                       color="secondary"
+                       label-class="text-weight-bold"
+                       label="Send Message"/>
     </div>
 
   </q-form>
@@ -66,8 +78,12 @@
 /* eslint-disable brace-style */
 /* eslint-disable no-mixed-operators */
 
+import StandardButton from 'components/buttons/StandardButton'
+
 export default {
   name: 'ContactForm',
+  components: { StandardButton },
+
   data () {
     return {
 
@@ -161,8 +177,5 @@ export default {
 
 .q-form
   max-width: 600px
-
-.q-field__native
-  color: $muted
 
 </style>

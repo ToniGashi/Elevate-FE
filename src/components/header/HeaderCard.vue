@@ -22,15 +22,12 @@
 
       <q-card-section>
 
-        <q-btn size="lg"
-               unelevated
-               color="secondary">
-
-          <div class="text-weight-bold">
-            Start Investing
-          </div>
-
-        </q-btn>
+        <standard-button size="lg"
+                         padding="10px md"
+                         unelevated
+                         color="secondary"
+                         label-class="text-weight-bold"
+                         label="Start Investing"/>
 
       </q-card-section>
 
@@ -40,8 +37,10 @@
 </template>
 
 <script>
+import StandardButton from 'components/buttons/StandardButton'
 export default {
-  name: 'HeaderCard'
+  name: 'HeaderCard',
+  components: { StandardButton }
 }
 </script>
 
