@@ -87,8 +87,19 @@ export default {
   height: 88px
 
 .contact-page
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/map-of-the-world.jpg") no-repeat center center fixed
+  position: relative
+  background: rgba(0, 0, 0, 0.6)
+
+.contact-page:after
+  content: ""
+  position: absolute
+  background: url("src/assets/map-of-the-world.jpg") no-repeat center center fixed
   background-size: cover
-  height: 100%
   overflow: hidden
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  opacity: 0.7
 </style>
