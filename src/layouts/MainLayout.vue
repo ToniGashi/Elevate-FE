@@ -31,7 +31,8 @@
 
     </q-footer>
 
-    <q-page-container>
+    <q-page-container
+      :class="{ 'contact-page': path === '/contact' }">
       <!-- This is where pages get injected -->
       <router-view />
     </q-page-container>
@@ -85,4 +86,9 @@ export default {
 #footer
   height: 88px
 
+.contact-page
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/map-of-the-world.jpg") no-repeat center center fixed
+  background-size: cover
+  height: 100%
+  overflow: hidden
 </style>

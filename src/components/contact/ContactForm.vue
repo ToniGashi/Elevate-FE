@@ -4,13 +4,14 @@
     @submit="onSubmit"
     @reset="onReset"
     ref="contactForm"
-    class="q-gutter-md q-mx-auto text-center">
+    class="q-gutter-sm q-mx-auto text-center">
 
     <q-input
       v-for="(input, index) in inputs"
       :key="input.id"
       outlined
       color="secondary"
+      dark
       bg-color="white"
       input-style="font-size:17px"
       :input-class="[
@@ -144,6 +145,6 @@ export default {
 <style lang="sass" scoped>
 
 .q-form
-  width: 550px
+  max-width: 550px
 
 </style>
