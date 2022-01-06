@@ -11,7 +11,6 @@
       :key="input.id"
       outlined
       color="secondary"
-      dark
       bg-color="white"
       input-style="font-size:17px"
       :input-class="[
@@ -26,7 +25,7 @@
       :lazy-rules="input.lazy_rules"
       :rules="input.rules" />
 
-    <div>
+    <div class="q-mt-md">
 
       <standard-button size="lg"
                        padding="sm 40px"
