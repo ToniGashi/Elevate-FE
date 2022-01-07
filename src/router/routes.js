@@ -7,8 +7,13 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'about-us', component: () => import('pages/About.vue') },
       { path: 'contact', component: () => import('pages/Contact.vue') },
-      { path: 'projects', component: () => import('pages/ProjectMarketplace.vue') },
-      { path: 'projects/:id', component: () => import('pages/Project.vue') }
+      {
+        path: 'projects',
+        component: () => import('pages/ProjectMarketplace.vue'),
+        children: [
+          { path: ':id', component: () => import('pages/Project.vue') }
+        ]
+      }
     ]
   },
 
