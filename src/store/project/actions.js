@@ -1,5 +1,5 @@
 export async function getAllProjects (context) {
-  await this.$axios.get('http://localhost:4000/projects', {
+  await this.$axios.get('/api/projects', {
     withCredentials: true
   })
     .then(response => {
