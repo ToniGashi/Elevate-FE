@@ -7,8 +7,17 @@
 
 <script>
 import ProjectList from 'components/projectMarketplace/ProjectList.vue'
+import projects from 'components/projectMarketplace/mockData'
 export default {
   name: 'ProjectMarketplace',
-  components: { ProjectList }
+  components: { ProjectList },
+  data () {
+    return {
+      currentProject: {}
+    }
+  },
+  created () {
+    if (this.$route.params.id) { this.currentProject = projects.find(project => project.id === this.$route.params.id) }
+  }
 }
 </script>

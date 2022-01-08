@@ -105,14 +105,11 @@
 
 <script>
 
-import projectList from 'components/projectMarketplace/mockData'
-
 export default {
   name: 'Project',
   data () {
     return {
-      tab: 'mails',
-      currentProject: projectList.find(project => Number(project.id) === Number(this.$route.params.id))
+      tab: 'mails'
     }
   },
   methods: {
