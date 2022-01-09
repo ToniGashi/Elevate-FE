@@ -1,7 +1,9 @@
 <template>
   <q-page padding>
-    <project-list v-if="!$route.params.id"></project-list>
-    <router-view v-else></router-view>
+    <project-list v-if="!$route.params.id"
+                  :projects="projects" />
+    <router-view v-else
+                 :current-project="currentProject" />
   </q-page>
 </template>
 
@@ -13,11 +15,17 @@ export default {
   components: { ProjectList },
   data () {
     return {
+      projects: projects,
       currentProject: {}
     }
   },
   created () {
-    if (this.$route.params.id) { this.currentProject = projects.find(project => project.id === this.$route.params.id) }
+    if (this.$route.params.id) {
+      this.currentProject = {
+        ...projects.find(project => Number(project.id) ===
+          Number(this.$route.params.id))
+      }
+    }
   }
 }
 </script>

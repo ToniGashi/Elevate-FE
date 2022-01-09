@@ -62,7 +62,7 @@ export default [
     motto: 'The Breakfast of Champions',
     type: 'Specialized',
     location: 'Tirana',
-    img: 'https://pbs.twimg.com/media/EkrdztFWAAAl0EZ.jpg'
+    img: 'https://shop.4fitness.bg/Files/Images/ImageManager/Fit_Spo/3D_Delight_.png'
   },
   {
     id: 4,

@@ -1,8 +1,9 @@
 <template>
 <div>
-    <ul v-for="project in mockProjectList" :key="project.id">
+    <ul v-for="project in projects"
+        :key="project.id">
         <li>
-          <project-list-item :currentProject="project"></project-list-item>
+          <project-list-item :currentProject="project"/>
         </li>
     </ul>
 </div>
@@ -12,6 +13,7 @@
 import ProjectListItem from 'components/projectMarketplace/ProjectListItem'
 export default {
   name: 'ProjectList',
-  components: { ProjectListItem }
+  components: { ProjectListItem },
+  props: ['projects']
 }
 </script>

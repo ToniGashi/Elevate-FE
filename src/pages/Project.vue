@@ -107,6 +107,7 @@
 
 export default {
   name: 'Project',
+  props: ['currentProject'],
   data () {
     return {
       tab: 'mails'
