@@ -33,11 +33,7 @@ export default [
     tags: [
       'tech', 'green', 'innovation'
     ],
-    location: {
-      country: 'Albania',
-      city: 'Tirana',
-      address: 'Ferit Xhajko 24'
-    },
+    location: 'Tirana, Albania',
     img: 'https://i.pinimg.com/736x/36/a9/ee/36a9eed7d1432d00468cb3a4a99cb38c.jpg'
   },
   {
@@ -49,7 +45,7 @@ export default [
     term: '12 months',
     motto: 'A Diamond is Forever',
     type: 'Specialized',
-    location: 'Sofia',
+    location: 'Sofia, Bulgaria',
     img: 'https://i.pinimg.com/originals/e6/f9/aa/e6f9aaf18d844334eecde0ed0fe70b76.jpg'
   },
   {
@@ -61,7 +57,7 @@ export default [
     term: '12 months',
     motto: 'The Breakfast of Champions',
     type: 'Specialized',
-    location: 'Tirana',
+    location: 'Tirana, Albania',
     img: 'https://shop.4fitness.bg/Files/Images/ImageManager/Fit_Spo/3D_Delight_.png'
   },
   {
@@ -73,7 +69,7 @@ export default [
     term: '16 months',
     motto: 'We go the extra mile',
     type: 'Specialized',
-    location: 'Prague',
+    location: 'Prague, Czech Republic',
     img: 'https://www.wiseredllc.com/wp-content/uploads/2020/06/register2.jpg'
   },
   {
@@ -85,7 +81,7 @@ export default [
     term: '36 months',
     motto: 'Belong anywhere',
     type: 'Specialized',
-    location: 'Moscow',
+    location: 'Moscow, Russia',
     img: 'https://bucket.credgenics.com/staging/assets/img/startegy.jpg'
   },
   {
@@ -97,7 +93,7 @@ export default [
     term: '18 months',
     motto: 'Go beyond', // MAX 30 CHARACTERS
     type: 'Specialized',
-    location: 'London',
+    location: 'London, United Kingdom',
     img: 'https://progressivetimes.files.wordpress.com/2011/04/green-internet.jpg'
   }
 ]

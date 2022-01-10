@@ -2,7 +2,7 @@
 
   <q-toolbar inset>
 
-    <q-toolbar-title class="text-dark-1 text-subtitle1">
+    <q-toolbar-title class="text-primary text-subtitle1">
       Copyright © Your Website 2021
     </q-toolbar-title>
 
@@ -15,7 +15,7 @@
               no-caps
               stretch
               :to="link.to"
-              init-color="dark-1"/>
+              init-color="primary"/>
 
   </q-toolbar>
 

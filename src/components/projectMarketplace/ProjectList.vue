@@ -1,11 +1,32 @@
 <template>
 <div>
-    <ul v-for="project in projects"
-        :key="project.id">
-        <li>
-          <project-list-item :currentProject="project"/>
-        </li>
-    </ul>
+
+  <div class="text-h4 text-weight-bold text-left q-mb-xl text-blue-grey-9">
+    Investment opportunities
+  </div>
+
+  <div v-for="(row, index) in grid"
+       :key="index"
+       :class="[
+       'row q-col-gutter-x-md',
+       { 'q-mb-md': index !==
+       grid.length - 1 }
+       ]">
+
+    <div :class="[
+                  { 'col-12': row.length === 1 },
+                  { 'col-6' : row.length === 2 },
+                  { 'col-4' : row.length === 3 }
+                 ]"
+         v-for="project in row"
+         :key="project.id">
+
+  <project-list-item :currentProject="project"/>
+
+    </div>
+
+  </div>
+
 </div>
 </template>
 
