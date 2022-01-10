@@ -17,7 +17,8 @@ export default {
   props: ['projects'],
   computed: {
     grid () {
-      let i = 0, grid = []
+      const i = 0
+      let grid = []
 
       if (this.projects.length === 1) {
         grid = [[this.projects[0]]]
@@ -25,69 +26,67 @@ export default {
         grid = [[this.projects[0], this.projects[1]]]
       } else if (this.projects.length > 2) {
         if (this.projects.length % 3 === 0) {
-          for (i; i < this.projects.length / 3; i++) {
-            grid[i] = []
-          }
-
-          i = 0
-
-          for (let j = 0; j < this.projects.length; j++) {
-            grid[i].push(this.projects[j])
-            if ((j + 1) % 3 === 0) {
-              i++
-            }
-          }
+          grid = this.formGrid(i, grid,
+            this.projects.length / 3, 'threes')
         } else if (this.projects.length % 3 === 1) {
           if (this.projects.length % 2 === 0) {
-            for (i; i < this.projects.length / 2; i++) {
-              grid[i] = []
-            }
-
-            i = 0
-
-            for (let j = 0; j < this.projects.length; j++) {
-              grid[i].push(this.projects[j])
-              if ((j + 1) % 2 === 0) {
-                i++
-              }
-            }
+            grid = this.formGrid(i, grid,
+              this.projects.length / 2, 'twos-even')
           } else {
-            for (i; i < 2 + (this.projects.length - 4) / 3; i++) {
-              grid[i] = []
-            }
-
-            grid[0][0] = this.projects[0]
-            grid[0][1] = this.projects[1]
-            grid[1][0] = this.projects[2]
-            grid[1][1] = this.projects[3]
-
-            i = 2
-
-            for (let j = 4; j < this.projects.length; j++) {
-              grid[i].push(this.projects[j])
-              if ((j - 3) % 3 === 0) {
-                i++
-              }
-            }
+            grid = this.formGrid(i, grid,
+              2 + (this.projects.length - 4) / 3, 'two-twos')
           }
         } else if (this.projects.length % 3 === 2) {
-          for (i; i < 1 + (this.projects.length - 2) / 3; i++) {
-            grid[i] = []
-          }
-
-          grid[0][0] = this.projects[0]
-          grid[0][1] = this.projects[1]
-
-          i = 1
-
-          for (let j = 2; j < this.projects.length; j++) {
-            grid[i].push(this.projects[j])
-            if ((j - 1) % 3 === 0) {
-              i++
-            }
-          }
+          grid = this.formGrid(i, grid,
+            1 + (this.projects.length - 2) / 3, 'one-twos')
         }
       }
+      return grid
+    }
+  },
+  methods: {
+    formGrid (rows, grid, rowLength, type) {
+      let cols, offset, rowSize
+
+      for (rows; rows < rowLength; rows++) {
+        grid[rows] = []
+      }
+
+      if (type === 'threes') {
+        rows = 0
+        cols = 0
+        offset = 1
+        rowSize = 3
+      } else if (type === 'twos-even') {
+        rows = 0
+        cols = 0
+        offset = 1
+        rowSize = 2
+      } else if (type === 'two-twos') {
+        grid[0][0] = this.projects[0]
+        grid[0][1] = this.projects[1]
+        grid[1][0] = this.projects[2]
+        grid[1][1] = this.projects[3]
+        rows = 2
+        cols = 4
+        offset = -3
+        rowSize = 3
+      } else if (type === 'one-twos') {
+        grid[0][0] = this.projects[0]
+        grid[0][1] = this.projects[1]
+        rows = 1
+        cols = 2
+        offset = -1
+        rowSize = 3
+      }
+
+      for (cols; cols < this.projects.length; cols++) {
+        grid[rows].push(this.projects[cols])
+        if ((cols + offset) % rowSize === 0) {
+          rows++
+        }
+      }
+
       return grid
     }
   }
