@@ -38,7 +38,7 @@
 
 <script>
 
-import NavLink from 'components/navigation/NavLink'
+import NavLink from 'components/navigation/NavLink.vue'
 export default {
   name: 'NavBar',
   components: { NavLink },

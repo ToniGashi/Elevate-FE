@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import ProjectListItem from 'components/projectMarketplace/ProjectListItem'
+import ProjectListItem from 'components/projectMarketplace/ProjectListItem.vue'
 export default {
   name: 'ProjectList',
   components: { ProjectListItem },

@@ -46,7 +46,7 @@
 /* eslint-disable brace-style */
 /* eslint-disable no-mixed-operators */
 
-import StandardButton from 'components/buttons/StandardButton'
+import StandardButton from 'components/buttons/StandardButton.vue'
 
 export default {
   name: 'ContactForm',

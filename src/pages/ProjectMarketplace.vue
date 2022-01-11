@@ -9,7 +9,7 @@
 
 <script>
 import ProjectList from 'components/projectMarketplace/ProjectList.vue'
-import projects from 'components/projectMarketplace/mockData'
+import projects from 'components/projectMarketplace/mockData.js'
 export default {
   name: 'ProjectMarketplace',
   components: { ProjectList },

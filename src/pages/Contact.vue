@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FormCard from 'components/contact/FormCard'
+import FormCard from 'components/contact/FormCard.vue'
 export default {
   name: 'Contact',
   components: { FormCard }

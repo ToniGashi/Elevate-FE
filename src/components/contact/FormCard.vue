@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import ContactForm from 'components/contact/ContactForm'
+import ContactForm from 'components/contact/ContactForm.vue'
 
 export default {
   name: 'FormCard',
