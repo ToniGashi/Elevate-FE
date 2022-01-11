@@ -9,23 +9,27 @@
 
 <script>
 import ProjectList from 'components/projectMarketplace/ProjectList.vue'
-import projects from 'components/projectMarketplace/mockData.js'
 export default {
   name: 'ProjectMarketplace',
   components: { ProjectList },
   data () {
     return {
-      projects: projects,
+      projects: [],
       currentProject: {}
     }
   },
   created () {
-    if (this.$route.params.id) {
-      this.currentProject = {
-        ...projects.find(project => Number(project.id) ===
-          Number(this.$route.params.id))
-      }
-    }
+    this.$store.dispatch('project/getAllProjects')
+      .then(() => {
+        this.projects = [...this.$store.getters['project/getProjects']]
+
+        if (this.$route.params.id) {
+          this.currentProject = {
+            ...this.projects.find(project => Number(project.id) ===
+              Number(this.$route.params.id))
+          }
+        }
+      })
   }
 }
 </script>
