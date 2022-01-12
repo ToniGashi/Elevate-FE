@@ -1,6 +1,6 @@
 import { boot } from 'quasar/wrappers'
 
-export default boot(({ router, store, ssrContext, redirect }) => {
+export default boot(({ router, store, redirect }) => {
   router.beforeEach((to, from,
     next) => {
     const pathSubstr = to.path.split('/')[1]
@@ -9,23 +9,22 @@ export default boot(({ router, store, ssrContext, redirect }) => {
     const singlePathObj = upperCasePath.slice(0, upperCasePath.length - 1)
     let data, currentObject
 
-    if (store.hasModule(pathSubstr)) {
+    if (!store.hasModule(pathSubstr)) {
+      next()
+    } else {
       store.dispatch(`${pathSubstr}/get${upperCasePath}`)
         .then(() => {
           data = store.getters[`${pathSubstr}/get${upperCasePath}`]
           if (data && data.length) {
-            if (to.params.id) {
+            if (Object.keys(to.params).length) {
               currentObject = {
                 ...data.find(object => Number(object.id) ===
                 Number(to.params.id))
               }
-              console.log(currentObject.length)
-              if (currentObject && currentObject.length) {
-                store.dispatch(`${pathSubstr}/setCurrent${singlePathObj}`)
+              if (Object.keys(currentObject).length) {
+                store.dispatch(`${pathSubstr}/setCurrent${singlePathObj}`, currentObject)
                 next()
-              } /* else {
-                redirect('/page404')
-              } */
+              } else redirect('/page404')
             } else next()
           } else redirect('/page404')
         })
@@ -33,6 +32,6 @@ export default boot(({ router, store, ssrContext, redirect }) => {
           console.log(error)
           redirect('/page404')
         })
-    } else next()
+    }
   })
 })

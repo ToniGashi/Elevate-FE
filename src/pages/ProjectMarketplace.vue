@@ -14,22 +14,25 @@ export default {
   components: { ProjectList },
   data () {
     return {
-      projects: [],
-      currentProject: {}
+      projects: []
     }
   },
   created () {
-    this.$store.dispatch('projects/getProjects')
-      .then(() => {
-        this.projects = [...this.$store.getters['projects/getProjects']]
+    this.projects = [...this.$store.getters['projects/getProjects']]
+  },
+  computed: {
 
-        if (this.$route.params.id) {
-          this.currentProject = {
-            ...this.projects.find(project => Number(project.id) ===
-              Number(this.$route.params.id))
-          }
-        }
-      })
+    currentProject () {
+      let project
+
+      if (this.$route.params.id) {
+        project = { ...this.$store.getters['projects/getCurrentProject'] }
+      }
+
+      return project
+    }
+
   }
+
 }
 </script>
