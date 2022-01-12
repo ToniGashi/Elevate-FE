@@ -19,9 +19,9 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('project/getAllProjects')
+    this.$store.dispatch('projects/getProjects')
       .then(() => {
-        this.projects = [...this.$store.getters['project/getProjects']]
+        this.projects = [...this.$store.getters['projects/getProjects']]
 
         if (this.$route.params.id) {
           this.currentProject = {
