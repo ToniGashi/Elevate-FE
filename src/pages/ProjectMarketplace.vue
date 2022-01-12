@@ -1,38 +1,18 @@
 <template>
   <q-page padding>
     <project-list v-if="!$route.params.id"
-                  :projects="projects" />
+                  :projects="data" />
     <router-view v-else
-                 :current-project="currentProject" />
+                 :current-project="currentObject" />
   </q-page>
 </template>
 
 <script>
 import ProjectList from 'components/projectMarketplace/ProjectList.vue'
+import fetcher from 'components/mixins/fetcher.js'
 export default {
   name: 'ProjectMarketplace',
   components: { ProjectList },
-  data () {
-    return {
-      projects: []
-    }
-  },
-  created () {
-    this.projects = [...this.$store.getters['projects/getProjects']]
-  },
-  computed: {
-
-    currentProject () {
-      let project
-
-      if (this.$route.params.id) {
-        project = { ...this.$store.getters['projects/getCurrentProject'] }
-      }
-
-      return project
-    }
-
-  }
-
+  mixins: [fetcher]
 }
 </script>
