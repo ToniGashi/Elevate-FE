@@ -1,5 +1,7 @@
 import { boot } from 'quasar/wrappers'
 
+let data = [], currentObject = {}
+
 export default boot(({ router, store, redirect }) => {
   router.beforeEach((to, from,
     next) => {
@@ -7,7 +9,6 @@ export default boot(({ router, store, redirect }) => {
     const upperCasePath = pathSubstr.charAt(0).toUpperCase() +
       pathSubstr.slice(1)
     const singlePathObj = upperCasePath.slice(0, upperCasePath.length - 1)
-    let data, currentObject
 
     if (!store.hasModule(pathSubstr)) {
       next()
@@ -17,12 +18,9 @@ export default boot(({ router, store, redirect }) => {
           data = store.getters[`${pathSubstr}/get${upperCasePath}`]
           if (data && data.length) {
             if (Object.keys(to.params).length) {
-              currentObject = {
-                ...data.find(object => Number(object.id) ===
-                Number(to.params.id))
-              }
+              store.dispatch(`${pathSubstr}/setCurrent${singlePathObj}`, to.params.id)
+              currentObject = store.getters[`${pathSubstr}/getCurrent${singlePathObj}`]
               if (Object.keys(currentObject).length) {
-                store.dispatch(`${pathSubstr}/setCurrent${singlePathObj}`, currentObject)
                 next()
               } else redirect('/page404')
             } else next()
@@ -35,3 +33,5 @@ export default boot(({ router, store, redirect }) => {
     }
   })
 })
+
+export { data, currentObject }

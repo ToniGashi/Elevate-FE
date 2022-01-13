@@ -7,6 +7,9 @@
 
 export default {
   name: 'Project',
-  props: ['currentProject']
+  props: ['currentProject'],
+  created () {
+    console.log(this.currentProject)
+  }
 }
 </script>
