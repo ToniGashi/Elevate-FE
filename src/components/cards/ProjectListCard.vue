@@ -49,7 +49,7 @@
 
 <script>
 export default {
-  name: 'ProjectListItem',
+  name: 'ProjectListCard',
   props: ['currentProject'],
   methods: {
     changeRoute () {

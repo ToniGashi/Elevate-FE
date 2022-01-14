@@ -4,11 +4,7 @@ export default {
       currentObject: {}
     }
   },
-  async created () {
-    const { currentObject } = await import('boot/routevalidator.js')
-    this.currentObject = {
-      ...currentObject
-    }
+  created () {
     this.$watch(
       () => this.$route.params.id,
       async () => {
@@ -18,7 +14,8 @@ export default {
             ...currentObject
           }
         }
-      }
+      },
+      { immediate: true }
     )
   }
 }

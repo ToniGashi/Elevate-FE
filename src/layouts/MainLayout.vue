@@ -43,7 +43,7 @@
 <script>
 
 import NavBar from 'components/header/NavBar.vue'
-import HeaderCard from 'components/header/HeaderCard.vue'
+import HeaderCard from 'components/cards/HeaderCard.vue'
 import Footer from 'components/footer/Footer.vue'
 export default {
   name: 'MainLayout',

@@ -21,7 +21,7 @@
          v-for="project in row"
          :key="project.id">
 
-  <project-list-item :currentProject="project"/>
+  <project-list-card :currentProject="project"/>
 
     </div>
 
@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import ProjectListItem from 'components/projectMarketplace/ProjectListItem.vue'
+import ProjectListCard from 'components/cards/ProjectListCard.vue'
 export default {
   name: 'ProjectList',
-  components: { ProjectListItem },
+  components: { ProjectListCard },
   props: ['projects'],
   computed: {
     grid () {
