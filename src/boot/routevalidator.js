@@ -17,10 +17,10 @@ export default boot(({ router, store, redirect }) => {
         .then(() => {
           data = store.getters[`${pathSubstr}/get${upperCasePath}`]
           if (data && data.length) {
-            if (Object.keys(to.params).length) {
+            if (to.params && Object.keys(to.params).length) {
               store.dispatch(`${pathSubstr}/setCurrent${singlePathObj}`, to.params.id)
               currentObject = store.getters[`${pathSubstr}/getCurrent${singlePathObj}`]
-              if (Object.keys(currentObject).length) {
+              if (currentObject && Object.keys(currentObject).length) {
                 next()
               } else redirect('/page404')
             } else next()
@@ -28,7 +28,6 @@ export default boot(({ router, store, redirect }) => {
         })
         .catch(error => {
           console.log(error)
-          redirect('/page404')
         })
     }
   })
