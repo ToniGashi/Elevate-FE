@@ -4,12 +4,9 @@
 </template>
 
 <script>
-
+import childFetcher from 'components/mixins/childFetcher.js'
 export default {
   name: 'Project',
-  props: ['currentProject'],
-  created () {
-    console.log(this.currentProject)
-  }
+  mixins: [childFetcher]
 }
 </script>
