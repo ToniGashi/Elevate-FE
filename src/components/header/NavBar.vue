@@ -49,7 +49,7 @@ export default {
       label: document.title,
       links: [
         { to: '/projects', label: 'Projects' },
-        { to: '/about-us', label: 'About' },
+        // { to: '/about-us', label: 'About' },
         { to: '/contact', label: 'Contact us' }
       ]
 
