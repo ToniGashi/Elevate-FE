@@ -1,10 +1,5 @@
 <template>
 <div>
-
-  <div class="text-h4 text-weight-bold text-left q-mb-xl text-blue-grey-9">
-    Investment opportunities
-  </div>
-
   <div v-for="(row, index) in grid"
        :key="index"
        :class="[
@@ -18,10 +13,11 @@
                   { 'col-6' : row.length === 2 },
                   { 'col-4' : row.length === 3 }
                  ]"
-         v-for="project in row"
-         :key="project.id">
+         v-for="entity in row"
+         :key="entity.id">
 
-  <project-list-card :currentProject="project"/>
+      <component :is="component"
+                 :current-object="entity"/>
 
     </div>
 
@@ -31,35 +27,33 @@
 </template>
 
 <script>
-import ProjectListCard from 'components/cards/ProjectListCard.vue'
 export default {
-  name: 'ProjectList',
-  components: { ProjectListCard },
-  props: ['projects'],
+  name: 'StandardGrid',
+  props: ['data', 'component'],
   computed: {
     grid () {
       const i = 0
       let grid = []
 
-      if (this.projects.length === 1) {
-        grid = [[this.projects[0]]]
-      } else if (this.projects.length === 2) {
-        grid = [[this.projects[0], this.projects[1]]]
-      } else if (this.projects.length > 2) {
-        if (this.projects.length % 3 === 0) {
+      if (this.data.length === 1) {
+        grid = [[this.data[0]]]
+      } else if (this.data.length === 2) {
+        grid = [[this.data[0], this.data[1]]]
+      } else if (this.data.length > 2) {
+        if (this.data.length % 3 === 0) {
           grid = this.formGrid(i, grid,
-            this.projects.length / 3, 'threes')
-        } else if (this.projects.length % 3 === 1) {
-          if (this.projects.length % 2 === 0) {
+            this.data.length / 3, 'threes')
+        } else if (this.data.length % 3 === 1) {
+          if (this.data.length % 2 === 0) {
             grid = this.formGrid(i, grid,
-              this.projects.length / 2, 'twos-even')
+              this.data.length / 2, 'twos-even')
           } else {
             grid = this.formGrid(i, grid,
-              2 + (this.projects.length - 4) / 3, 'two-twos')
+              2 + (this.data.length - 4) / 3, 'two-twos')
           }
-        } else if (this.projects.length % 3 === 2) {
+        } else if (this.data.length % 3 === 2) {
           grid = this.formGrid(i, grid,
-            1 + (this.projects.length - 2) / 3, 'one-twos')
+            1 + (this.data.length - 2) / 3, 'one-twos')
         }
       }
       return grid
@@ -84,25 +78,25 @@ export default {
         offset = 1
         rowSize = 2
       } else if (type === 'two-twos') {
-        grid[0][0] = this.projects[0]
-        grid[0][1] = this.projects[1]
-        grid[1][0] = this.projects[2]
-        grid[1][1] = this.projects[3]
+        grid[0][0] = this.data[0]
+        grid[0][1] = this.data[1]
+        grid[1][0] = this.data[2]
+        grid[1][1] = this.data[3]
         rows = 2
         cols = 4
         offset = -3
         rowSize = 3
       } else if (type === 'one-twos') {
-        grid[0][0] = this.projects[0]
-        grid[0][1] = this.projects[1]
+        grid[0][0] = this.data[0]
+        grid[0][1] = this.data[1]
         rows = 1
         cols = 2
         offset = -1
         rowSize = 3
       }
 
-      for (cols; cols < this.projects.length; cols++) {
-        grid[rows].push(this.projects[cols])
+      for (cols; cols < this.data.length; cols++) {
+        grid[rows].push(this.data[cols])
         if ((cols + offset) % rowSize === 0) {
           rows++
         }
