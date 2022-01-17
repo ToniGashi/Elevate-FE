@@ -12,9 +12,14 @@ installers
 yarn
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Start production server
 ```bash
 yarn start
+```
+
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+yarn dev
 ```
 
 ### Lint the files

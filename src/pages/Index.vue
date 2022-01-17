@@ -6,10 +6,6 @@
 
 <script>
 export default {
-  name: 'Index',
-  created () {
-    this.$store.dispatch('user/getAllUsers')
-      .then(() => console.log(this.$store.getters['user/getUsers']))
-  }
+  name: 'Index'
 }
 </script>

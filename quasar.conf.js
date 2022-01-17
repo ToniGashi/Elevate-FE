@@ -22,7 +22,8 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      'axios'
+      'axios',
+      'routevalidator'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -80,7 +81,7 @@ module.exports = configure(function (ctx) {
       port: 8080,
       proxy: {
         '/api': {
-          target: `http://localhost:${process.env.API_PORT}/api`,
+          target: process.env.API_URL,
           changeOrigin: true,
           pathRewrite: {
             '^/api': ''
