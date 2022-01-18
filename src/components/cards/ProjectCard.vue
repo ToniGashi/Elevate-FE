@@ -25,7 +25,7 @@
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
-                      q-pa-none justify-between q-mx-auto">
+                      q-pa-none justify-evenly q-mx-auto">
         <div :class="[
           'text-h6',
           { 'q-mb-lg': $q.screen.sm }
@@ -36,10 +36,19 @@
           </span>
         </div>
 
+      <div :class="[
+           'row',
+           'justify-between',
+           { 'q-mb-lg': $q.screen.sm }
+           ]">
         <q-linear-progress :value="progress"
                            color="secondary"
                            size="lg"
-                           :class="{ 'q-mb-lg': $q.screen.sm }"/>
+                           class="col-11"/>
+          <q-badge text-color="secondary"
+                   class="col-shrink"
+                   :label="currentProject.interestRate" />
+      </div>
 
         <standard-button id="invest-button"
                          size="1.5rem"
@@ -82,4 +91,7 @@ export default {
   width: 100%
 #invest-button
   width: 100%
+.q-badge
+  background-color: #dcdcdc
+  height: 16px
 </style>
