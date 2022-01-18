@@ -7,14 +7,18 @@
       </div>
     </q-card-section>
 
-    <q-card-section horizontal>
+    <q-card-section class="row">
       <q-img
-        class="col-lg-9 col-sm-8"
+        :ratio="16/9"
+        class="col-lg-6 col-sm-12 q-mb-sm"
         :src="currentProject.img"/>
 
-      <q-card-actions vertical>
-        <standard-button :size="$q.screen.lg ? '1.7rem': 'md'"
-                         padding="sm xl"
+      <q-card-actions vertical
+                      class="col-lg-5 col-sm-12 q-pa-none
+                      q-mx-auto">
+        <standard-button id="invest-button"
+                         size="1.5rem"
+                         padding="sm lg"
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold text-no-wrap"
@@ -36,5 +40,7 @@ export default {
 
 <style lang="sass" scoped>
 .q-card
+  width: 100%
+#invest-button
   width: 100%
 </style>
