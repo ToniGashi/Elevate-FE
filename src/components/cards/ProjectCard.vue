@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import StandardButton from 'components/buttons/StandardButton'
+import StandardButton from 'components/buttons/StandardButton.vue'
 export default {
   name: 'ProjectCard',
   props: ['currentProject'],

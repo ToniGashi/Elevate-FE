@@ -13,7 +13,7 @@
 
 <script>
 import parentFetcher from 'components/mixins/parentFetcher.js'
-import StandardGrid from 'components/grids/StandardGrid'
+import StandardGrid from 'components/grids/StandardGrid.vue'
 import { shallowRef, defineAsyncComponent } from 'vue'
 export default {
   name: 'ProjectMarketplace',

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ProjectCard from 'components/cards/ProjectCard'
+import ProjectCard from 'components/cards/ProjectCard.vue'
 import childFetcher from 'components/mixins/childFetcher.js'
 export default {
   name: 'Project',
