@@ -1,5 +1,7 @@
 <template>
-  <q-card class="bg-grey-2 q-pa-xl" flat>
+  <q-card class="bg-grey-2 q-pa-xl"
+          square
+          flat>
     <q-card-section class="text-left q-mb-sm">
       <div class="text-h2 text-weight-bold q-mb-sm">
         {{currentProject.name}}
