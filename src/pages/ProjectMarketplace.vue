@@ -5,7 +5,7 @@
       Investment opportunities
     </div>
     <standard-grid :data="data"
-                   :current-component="projectListCard"/>
+                   :component="projectListCard"/>
     </template>
     <router-view v-else />
   </q-page>
@@ -14,23 +14,22 @@
 <script>
 import parentFetcher from 'components/mixins/parentFetcher.js'
 import StandardGrid from 'components/grids/StandardGrid'
-import { markRaw } from 'vue'
+import { shallowRef, defineAsyncComponent } from 'vue'
 export default {
   name: 'ProjectMarketplace',
-  components: { StandardGrid },
+  components: {
+    StandardGrid
+  },
   mixins: [parentFetcher],
   data () {
     return {
-      projectListCard: {
-        name: 'ProjectListCard',
-        component: {
-          template: '<project-list-card :currentProject="entity"/>'
-        }
-      }
+      projectListCard: {}
     }
   },
-  mounted () {
-    console.log(markRaw())
+  created () {
+    this.projectListCard = shallowRef(defineAsyncComponent(
+      () => import('components/cards/ProjectListCard.vue')
+    ))
   }
 }
 </script>

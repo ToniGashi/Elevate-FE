@@ -16,7 +16,8 @@
          v-for="entity in row"
          :key="entity.id">
 
-      <component :is="currentComponent"></component>
+      <component :is="component"
+                 :current-object="entity"/>
 
     </div>
 
@@ -28,7 +29,7 @@
 <script>
 export default {
   name: 'StandardGrid',
-  props: ['data', 'currentComponent'],
+  props: ['data', 'component'],
   computed: {
     grid () {
       const i = 0
