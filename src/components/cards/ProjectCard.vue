@@ -3,8 +3,19 @@
           square
           flat>
     <q-card-section class="text-left q-mb-sm">
-      <div class="text-h2 text-weight-bold q-mb-sm">
+      <div class="row items-center q-mb-sm">
+      <div class="text-h2 text-weight-bold col-auto">
         {{currentProject.name}}
+      </div>
+        <q-spinner v-if="isLoading"
+                   color="primary"
+                   class="col-auto on-right"
+                   size="sm"/>
+      <q-icon v-if="!isLoading"
+              :name="`img:icons/flags/${iconFile}.svg`"
+              class="col-auto shadow-5"
+              right
+              size="lg"/>
       </div>
       <div class="text-subtitle1 text-weight-medium
            text-muted text-italic q-mb-sm">
@@ -73,15 +84,29 @@ export default {
   components: { StandardButton },
   data () {
     return {
+      iconFile: '',
+      isLoading: true,
       progress: 0
     }
   },
   created () {
     this.$watch(
-      () => this.currentProject.interestRate,
+      () => [this.currentProject.interestRate,
+        this.currentProject.location],
       () => {
-        this.progress = Number(this.currentProject.interestRate
-          .split('%')[0]) / 100
+        if (this.currentProject.interestRate) {
+          this.progress = Number(this.currentProject.interestRate
+            .split('%')[0]) / 100
+        }
+        if (this.currentProject.location) {
+          const country = this.currentProject.location.split(',')[1]
+
+          this.$axios.get(`https://restcountries.com/v3.1/name/${country}`)
+            .then(response => {
+              this.iconFile = response.data[0].cca2.toLowerCase()
+              this.isLoading = false
+            })
+        }
       }
     )
   }

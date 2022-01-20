@@ -38,7 +38,7 @@ export default {
     },
     label: {
       required: true,
-      type: String
+      type: [String, Number]
     },
     labelClass: {
       default: 'text-weight-regular',
