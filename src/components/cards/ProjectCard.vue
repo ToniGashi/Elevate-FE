@@ -7,13 +7,13 @@
       <div class="text-h2 text-weight-bold col-auto">
         {{currentProject.name}}
       </div>
-        <q-spinner v-if="isLoading"
-                   color="primary"
-                   class="col-auto on-right"
-                   size="sm"/>
-      <q-icon v-if="!isLoading"
+      <q-spinner v-if="isLoading"
+                 color="primary"
+                 class="col-auto on-right"
+                 size="sm"/>
+      <q-icon v-else
               :name="`img:icons/flags/${iconFile}.svg`"
-              class="col-auto shadow-5"
+              class="col-auto shadow-5 q-mt-sm q-mb-xs"
               right
               size="lg"/>
       </div>
