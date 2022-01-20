@@ -30,7 +30,8 @@
       </div>
     </q-img>
 
-    <q-card-section class="text-body1 text-left text-weight-bold">
+    <q-card-section class="text-body1 text-left
+                    text-weight-bold text-no-wrap">
       Location: {{currentObject.location}}
     </q-card-section>
     <q-separator/>
