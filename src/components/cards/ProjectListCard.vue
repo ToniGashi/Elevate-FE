@@ -4,10 +4,11 @@
           id="project-item"
           @click="changeRoute">
 
+    <q-card-section class="no-padding" >
+
     <q-img :src="currentObject.img"
            fit="cover"
-           height="350px"
-           width="100%">
+           :ratio="16/9">
 
       <q-avatar class="absolute-top-right
                 text-weight-medium q-mt-xs q-mr-xs"
@@ -20,29 +21,56 @@
         </div>
       </q-avatar>
 
-      <div class="absolute-bottom">
-      <div class="text-h6">
-        {{currentObject.name}}
+      <div class="absolute-bottom no-padding">
+
+        <div :class="[
+             $q.screen.sm ? 'q-py-sm': 'q-py-lg' ,
+             'text-center'
+          ]">
+
+        <div class="text-h6">
+          {{currentObject.name}}
+        </div>
+
+        <div class="text-caption">
+          {{currentObject.motto}}
+        </div>
+
+        </div>
+
       </div>
-      <div class="text-caption">
-        {{currentObject.motto}}
-      </div>
-      </div>
+
     </q-img>
 
-    <q-card-section class="text-body1 text-left
-                    text-weight-bold text-no-wrap">
-      Location: {{currentObject.location}}
-    </q-card-section>
-    <q-separator/>
+    <q-list v-if="$route.path === '/projects'"
+            separator
+            :class="[
+            $q.screen.sm ? 'text-caption': 'text-body1',
+            'text-no-wrap',
+            'text-left',
+            $q.screen.sm ? 'text-weight-medium': 'text-weight-bold'
+            ]">
 
-    <q-card-section class="text-body1 text-left text-weight-bold">
-      Term: {{currentObject.term}}
-    </q-card-section>
-    <q-separator/>
+      <q-item>
+        <q-item-section>
+          Location: {{currentObject.location}}
+        </q-item-section>
+      </q-item>
 
-    <q-card-section class="text-body1 text-left text-weight-bold">
-      Type: {{currentObject.type}}
+      <q-item>
+        <q-item-section>
+          Term: {{currentObject.term}}
+        </q-item-section>
+      </q-item>
+
+      <q-item>
+        <q-item-section>
+          Type: {{currentObject.type}}
+        </q-item-section>
+      </q-item>
+
+    </q-list>
+
     </q-card-section>
 
   </q-card>
