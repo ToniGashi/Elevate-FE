@@ -1,13 +1,24 @@
 <template>
   <q-page padding>
-    <standard-grid :data="projects"
+    <q-card flat
+            square
+            class="bg-grey-1">
+      <q-card-section>
+        <div class="text-h5 text-weight-bold text-left text-blue-grey-9">
+          Active investment opportunities
+        </div>
+      </q-card-section>
+      <q-card-section>
+        <standard-grid :data="projects"
                    :component="projectListCard"/>
+      </q-card-section>
+  </q-card>
   </q-page>
 </template>
 
 <script>
-import moduleFetcher from 'components/mixins/moduleFetcher'
-import StandardGrid from 'components/grids/StandardGrid'
+import moduleFetcher from 'components/mixins/moduleFetcher.js'
+import StandardGrid from 'components/grids/StandardGrid.vue'
 import { defineAsyncComponent, shallowRef } from 'vue'
 export default {
   name: 'Index',

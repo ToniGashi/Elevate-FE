@@ -1,7 +1,7 @@
 <template>
   <q-card v-ripple.early
           square
-          id="project-item"
+          class="full-width"
           @click="changeRoute"
           @mouseover="expanded = true"
           @mouseleave="expanded = false">
@@ -41,7 +41,8 @@
       <transition-group enter-active-class="animated slideInUp"
                         leave-active-class="animated slideOutDown">
 
-        <q-list v-show="expanded"
+        <q-list id="project-list"
+                v-show="expanded"
                 dense
                 separator
                 key="project-list"
@@ -103,6 +104,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#project-item
-  width: 100%
+#project-list
+  animation-duration: 70ms
+  animation-delay: 0s
 </style>
