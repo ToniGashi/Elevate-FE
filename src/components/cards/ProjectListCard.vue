@@ -38,8 +38,8 @@
 
         </div>
 
-      <transition-group enter-active-class="animated slideInUp"
-                        leave-active-class="animated slideOutDown">
+      <transition-group enter-active-class="slideIn"
+                        leave-active-class="slideOut">
 
         <q-list id="project-list"
                 v-show="expanded"
@@ -104,7 +104,22 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#project-list
-  animation-duration: 70ms
-  animation-delay: 0s
+@keyframes slideIn
+  0%
+   transform: translateY(100%)
+  100%
+    transform: translateY(0)
+
+@keyframes slideOut
+  0%
+    transform: translateY(0)
+  100%
+    transform: translateY(100%)
+
+.slideIn
+  transform-origin: bottom
+  animation: slideIn 0.1s linear
+.slideOut
+  transform-origin: top
+  animation: slideOut 0.1s linear
 </style>
