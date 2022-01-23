@@ -1,6 +1,7 @@
 <template>
   <q-page padding>
-    <q-card flat
+    <q-card v-if="projects && projects.length"
+            flat
             square
             class="bg-grey-1">
       <q-card-section>
@@ -35,9 +36,11 @@ export default {
       () => import('components/cards/ProjectListCard.vue')
     ))
     const allProjects = [...this.$store.getters['projects/getProjects']]
-    this.projects.push(allProjects[0])
-    this.projects.push(allProjects[1])
-    this.projects.push(allProjects[2])
+    if (allProjects && allProjects.length) {
+      this.projects.push(allProjects[0])
+      this.projects.push(allProjects[1])
+      this.projects.push(allProjects[2])
+    }
   }
 }
 </script>
