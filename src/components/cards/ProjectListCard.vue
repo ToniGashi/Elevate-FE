@@ -8,13 +8,16 @@
 
     <q-img :src="currentObject.img"
            fit="cover"
-           :ratio="$q.screen.lg? 16/9: 1">
+           :ratio="$q.screen.xl || $q.screen.lg? 16/9:
+           1">
 
       <q-avatar class="absolute-top-right
                 text-weight-medium q-mt-xs q-mr-xs"
                 color="red-9"
-                :size="$q.screen.lg? 'xl': 'lg'"
-                :font-size="$q.screen.lg? '15px': '12px'"
+                :size="$q.screen.xl || $q.screen.lg? 'xl':
+                'lg'"
+                :font-size="$q.screen.xl || $q.screen.lg? '15px':
+                '12px'"
                 text-color="white">
         <div class="absolute-center">
           {{currentObject.interestRate}}
@@ -24,11 +27,13 @@
       <div class="absolute-bottom no-padding">
 
         <div :class="[
-             $q.screen.lg? 'q-py-lg': 'q-py-md' ,
+             $q.screen.xl || $q.screen.lg? 'q-py-lg':
+             'q-py-md' ,
              'text-center'
-          ]">
+             ]">
 
-        <div :class="$q.screen.lg? 'text-h6': 'text-subtitle2'">
+        <div :class="$q.screen.xl || $q.screen.lg? 'text-h6':
+             'text-subtitle2'">
           {{currentObject.name}}
         </div>
 
@@ -47,13 +52,15 @@
                 separator
                 key="project-list"
                 :class="[
-            $q.screen.lg? 'text-body1': 'text-caption',
-            'text-no-wrap',
-            'text-primary',
-            'bg-white',
-            'text-left',
-            $q.screen.lg? 'text-weight-bold': 'text-weight-medium'
-            ]">
+                $q.screen.xl || $q.screen.lg? 'text-body1':
+                'text-caption',
+                'text-no-wrap',
+                'text-primary',
+                'bg-white',
+                'text-left',
+                $q.screen.xl || $q.screen.lg? 'text-weight-bold':
+                'text-weight-medium'
+                ]">
 
           <q-item key="project-location">
             <q-item-section>
