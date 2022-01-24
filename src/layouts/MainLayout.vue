@@ -86,6 +86,9 @@ export default {
 #footer
   height: 88px
 
+.sign-up
+  background: linear-gradient(#6fb792, #195345)
+
 .contact-page
   position: relative
   background: rgba(0, 0, 0, 0.6)
