@@ -4,7 +4,7 @@
           id="project-item"
           @click="changeRoute">
 
-    <q-img :src="currentProject.img"
+    <q-img :src="currentObject.img"
            fit="cover"
            height="350px"
            width="100%">
@@ -16,32 +16,32 @@
                 font-size="15px"
                 text-color="white">
         <div class="absolute-center">
-          {{currentProject.interestRate}}
+          {{currentObject.interestRate}}
         </div>
       </q-avatar>
 
       <div class="absolute-bottom">
       <div class="text-h6">
-        {{currentProject.name}}
+        {{currentObject.name}}
       </div>
       <div class="text-caption">
-        {{currentProject.motto}}
+        {{currentObject.motto}}
       </div>
       </div>
     </q-img>
 
     <q-card-section class="text-body1 text-left text-weight-bold">
-      Location: {{currentProject.location}}
+      Location: {{currentObject.location}}
     </q-card-section>
     <q-separator/>
 
     <q-card-section class="text-body1 text-left text-weight-bold">
-      Term: {{currentProject.term}}
+      Term: {{currentObject.term}}
     </q-card-section>
     <q-separator/>
 
     <q-card-section class="text-body1 text-left text-weight-bold">
-      Type: {{currentProject.type}}
+      Type: {{currentObject.type}}
     </q-card-section>
 
   </q-card>
@@ -50,11 +50,11 @@
 <script>
 export default {
   name: 'ProjectListCard',
-  props: ['currentProject'],
+  props: ['currentObject'],
   methods: {
     changeRoute () {
       setTimeout(() => {
-        this.$router.push(`/projects/${this.currentProject.id}`)
+        this.$router.push(`/projects/${this.currentObject.id}`)
       }, 100)
     }
   }

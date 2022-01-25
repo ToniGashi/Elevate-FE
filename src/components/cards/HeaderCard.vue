@@ -22,7 +22,8 @@
 
       <q-card-section>
 
-        <standard-button size="lg"
+        <standard-button to="/projects"
+                         size="lg"
                          padding="10px md"
                          unelevated
                          color="secondary"
