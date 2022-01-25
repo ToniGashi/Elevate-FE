@@ -1,5 +1,5 @@
 <template>
-  <q-card class="bg-grey-2 q-pa-xl"
+  <q-card class="bg-grey-2 full-width q-pa-xl"
           square
           flat>
     <q-card-section class="text-left q-mb-sm">
@@ -63,7 +63,7 @@
                    :label="currentProject.interestRate" />
       </div>
 
-        <standard-button id="invest-button"
+        <standard-button class="full-width"
                          size="1.5rem"
                          padding="sm lg"
                          unelevated
@@ -114,10 +114,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.q-card
-  width: 100%
-#invest-button
-  width: 100%
 .q-badge
   background-color: #dcdcdc
   height: 16px
