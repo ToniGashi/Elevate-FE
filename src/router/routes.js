@@ -9,7 +9,7 @@ const routes = [
         component: () => import('pages/Index.vue'),
         props: { modules: ['projects'] }
       },
-      { path: 'about-us', component: () => import('pages/About.vue') },
+      // { path: 'about-us', component: () => import('pages/About.vue') },
       { path: 'contact', component: () => import('pages/Contact.vue') },
       {
         path: 'projects',

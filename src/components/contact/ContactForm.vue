@@ -125,7 +125,7 @@ export default {
         message: message
       }
 
-      this.$axios.post('https://pure-sea-49895.herokuapp.com/api/emails/contact', fetchData)
+      this.$axios.post('/api/emails/contact', fetchData)
         .then(response => {
           console.log(response)
           this.$refs.contactForm.reset()

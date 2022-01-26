@@ -20,17 +20,17 @@
     <q-space />
 
     <nav-link v-for="(link, index) in links"
-            :key="index"
-            class="nav-link"
-            init-color="white"
-            stretch
-            flat
-            :hover="homeOnTop
-            ? 'secondary'
-            : 'muted'"
-            no-caps
-            :to="link.to"
-            :label="link.label"/>
+              :key="index"
+              class="nav-link"
+              init-color="white"
+              stretch
+              flat
+              :hover="homeOnTop
+              ? 'secondary'
+              : 'muted'"
+              no-caps
+              :to="link.to"
+              :label="link.label"/>
 
   </q-toolbar>
 
@@ -45,10 +45,11 @@ export default {
   props: ['path', 'offset', 'homeOnTop'],
   data () {
     return {
+
       label: document.title,
       links: [
         { to: '/projects', label: 'Projects' },
-        { to: '/about-us', label: 'About' },
+        // { to: '/about-us', label: 'About' },
         { to: '/contact', label: 'Contact us' },
         { to: '/sign-up', label: 'Sign Up' }
       ]
@@ -60,11 +61,11 @@ export default {
         const isLoggedIn = (window.localStorage.getItem('isLoggedIn') === 'true')
 
         if (isLoggedIn) {
-          this.links[3].to = '/profile'
-          this.links[3].label = 'Profile'
+          this.links[2].to = '/profile'
+          this.links[2].label = 'Profile'
         } else {
-          this.links[3].to = '/sign-up'
-          this.links[3].label = 'Sign Up'
+          this.links[2].to = '/sign-up'
+          this.links[2].label = 'Sign Up'
         }
       }, { immediate: true })
   }
