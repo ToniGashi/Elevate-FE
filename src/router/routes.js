@@ -9,7 +9,7 @@ const routes = [
         component: () => import('pages/Index.vue'),
         props: { modules: ['projects'] }
       },
-      // { path: 'about-us', component: () => import('pages/About.vue') },
+      { path: 'about-us', component: () => import('pages/About.vue') },
       { path: 'contact', component: () => import('pages/Contact.vue') },
       {
         path: 'projects',
@@ -17,7 +17,9 @@ const routes = [
         children: [
           { path: ':id(\\d+)', component: () => import('pages/Project.vue') }
         ]
-      }
+      },
+      { path: 'sign-up', component: () => import('pages/SignUp.vue') },
+      { path: 'profile', component: () => import('pages/Profile.vue') }
     ]
   },
 

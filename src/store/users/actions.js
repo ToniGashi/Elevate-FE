@@ -5,11 +5,10 @@ export async function getUsers (context) {
     })
 }
 
-export function setCurrentUser (context, id) {
-  const user = context.getters.getUsers
-    .find(user => Number(user.id) ===
-      Number(id))
-  if (user && Object.keys(user).length) {
-    context.commit('setCurrentUser', user)
-  }
+export function setCurrentUser (context, currentUser) {
+  context.commit('setCurrentUser', currentUser.user)
+}
+
+export function setLoggedInStatus (context, loggedInStatus) {
+  context.commit('setLoggedInStatus', loggedInStatus)
 }
