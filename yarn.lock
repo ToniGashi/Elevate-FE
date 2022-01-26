@@ -1194,6 +1194,13 @@
   resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
   integrity sha1-6nrd907Ow9dimCegw54smt3HPQQ=
 
+"@types/cssnano@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/cssnano/-/cssnano-4.0.1.tgz#67fa912753d80973a016e7684a47fedf338aacff"
+  integrity sha512-hGOroxRTBkYl5gSBRJOffhV4+io+Y2bFX1VP7LgKEVHJt/LPPJaWUIuDAz74Vlp7l7hCDZfaDi7iPxwNwuVA4Q==
+  dependencies:
+    postcss "5 - 7"
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.1.tgz#8dc390a7b4f9dd9f1284629efce982e41612116e"
@@ -2426,6 +2433,7 @@ css-minimizer-webpack-plugin@3.3.1:
   resolved "https://registry.yarnpkg.com/css-minimizer-webpack-plugin/-/css-minimizer-webpack-plugin-3.3.1.tgz#5afc4507a4ec13dd223f043cda8953ee0bf6ecfa"
   integrity sha512-SHA7Hu/EiF0dOwdmV2+agvqYpG+ljlUa7Dvn1AVOmSH3N8KOERoaM9lGpstz9nGsoTjANGyUXdrxl/EwdMScRg==
   dependencies:
+    "@types/cssnano" "^4.0.1"
     cssnano "^5.0.6"
     jest-worker "^27.0.2"
     postcss "^8.3.5"

@@ -77,7 +77,9 @@ export default {
           lazy_rules: true,
           rules: [
             val => val && val.length > 0 ||
-            'Please type your email'
+            'Please type your email',
+            v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+            'E-mail must be valid'
           ]
         },
         {
@@ -123,7 +125,7 @@ export default {
         message: message
       }
 
-      this.$axios.post('/api/emails/contact', fetchData)
+      this.$axios.post('https://pure-sea-49895.herokuapp.com/api/emails/contact', fetchData)
         .then(response => {
           console.log(response)
           this.$refs.contactForm.reset()
