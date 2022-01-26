@@ -121,7 +121,7 @@ export default {
   methods: {
     async submitLogIn () {
       try {
-        const dataLogIn = await this.$axios.post('https://pure-sea-49895.herokuapp.com/api/users/token', {
+        const dataLogIn = await this.$axios.post('/api/users/token', {
           email: this.form.email,
           password: this.form.password
         })
@@ -139,7 +139,7 @@ export default {
     },
     async submitRegister () {
       try {
-        const dataLogIn = await this.$axios.post('https://pure-sea-49895.herokuapp.com/api/users', {
+        const dataLogIn = await this.$axios.post('/api/users', {
           first_name: this.form.firstName,
           last_name: this.form.lastName,
           email: this.form.email,
@@ -182,11 +182,10 @@ export default {
 }
 </script>
 
-<style>
-.error-message  {
-  color: #ba3939;
-  background: #ffe0e0;
-  margin-left: 20px;
-  margin-right: 20px;
-}
+<style lang="sass" scoped>
+.error-message
+  color: #ba3939
+  background: #ffe0e0
+  margin-left: 20px
+  margin-right: 20px
 </style>
