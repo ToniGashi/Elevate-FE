@@ -32,5 +32,14 @@ yarn run lint
 yarn build
 ```
 
+### Deployment (Use Git Bash To Avoid Unexpected Errors)
+```bash
+heroku login
+heroku git:remote -a <heroku app name>
+heroku config:set YARN_PRODUCTION=false
+git push heroku master
+```
+Add API_URL config var to Heroku
+
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).

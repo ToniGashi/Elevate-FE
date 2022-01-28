@@ -102,7 +102,7 @@ import useVuelidate from '@vuelidate/core'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
 
 export default {
-  name: 'signUp',
+  name: 'SignUpForm',
   setup () {
     return { v$: useVuelidate() }
   },

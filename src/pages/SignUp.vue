@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import signUpForm from 'components/signUp/SignUpForm.vue'
+import SignUpForm from 'components/signUp/SignUpForm.vue'
 export default {
-  name: 'Project',
-  components: { signUpForm }
+  name: 'SignUp',
+  components: { SignUpForm }
 }
 </script>
