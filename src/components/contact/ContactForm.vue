@@ -127,7 +127,6 @@ export default {
 
       this.$axios.post('/api/emails/contact', fetchData)
         .then(response => {
-          console.log(response)
           this.$refs.contactForm.reset()
           fullName = null
           email = null
