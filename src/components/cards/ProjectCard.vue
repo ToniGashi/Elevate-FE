@@ -30,19 +30,19 @@
       <q-img
         :ratio="16/9"
         :class="[
-          'col-lg-6',
-          'col-sm-12',
-          { 'q-mb-lg': $q.screen.sm }
-          ]"
+        'col-lg-6',
+        'col-sm-12',
+        { 'q-mb-lg': $q.screen.sm }
+        ]"
         :src="currentProject.img"/>
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
                       q-pa-none justify-evenly q-mx-auto">
         <div :class="[
-          'text-h6',
-          { 'q-mb-lg': $q.screen.sm }
-          ]">
+             'text-h6',
+             { 'q-mb-lg': $q.screen.sm }
+             ]">
           Term:
           <span class="text-weight-regular">
           {{currentProject.term}}

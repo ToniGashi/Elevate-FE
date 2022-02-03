@@ -6,15 +6,14 @@
     <!-- Be sure to play with the Layout demo on docs -->
 
     <q-header id="header"
-              :class="{ 'bg-header': homePageOnTop }"
               :elevated="path !== '/'">
 
     <header-card v-if="path === '/'"/>
 
     <nav-bar id="nav-bar"
              :class="[
-               { 'fixed-top': path === '/' },
-               { 'bg-primary': !homePageOnTop }
+             { 'fixed-top': path === '/' },
+             { 'bg-primary': !homePageOnTop }
              ]"
              :path="path"
              :offset="offset"
@@ -32,7 +31,10 @@
     </q-footer>
 
     <q-page-container
-      :class="{ 'contact-page': path === '/contact', 'sign-up': path === '/sign-up'}">
+      :class="[
+      { 'contact-page': path === '/contact' },
+      { 'sign-up': path === '/sign-up' }
+      ]">
       <!-- This is where pages get injected -->
       <router-view />
     </q-page-container>
@@ -87,16 +89,22 @@ export default {
   height: 88px
 
 .sign-up
-  background: linear-gradient(#6fb792, #195345)
+  background: linear-gradient($secondary, $tertiary)
+
+@keyframes fadeIn
+ from
+  opacity: 0
+ to
+  opacity: 0.7
 
 .contact-page
   position: relative
-  background: rgba(0, 0, 0, 0.6)
+  background: rgba(0, 0, 0, 0.7)
 
 .contact-page:after
   content: ""
   position: absolute
-  background: url("src/assets/map-of-the-world.jpg") no-repeat center center fixed
+  background: url("src/assets/map-of-the-world.jpg") no-repeat center fixed
   background-size: cover
   overflow: hidden
   top: 0
@@ -105,4 +113,5 @@ export default {
   bottom: 0
   z-index: -1
   opacity: 0.7
+  animation: fadeIn 0.7s
 </style>

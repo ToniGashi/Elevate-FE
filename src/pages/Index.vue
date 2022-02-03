@@ -11,7 +11,7 @@
       </q-card-section>
       <q-card-section>
         <standard-grid :data="projects"
-                   :component="projectListCard"/>
+                       :component="projectListCard"/>
       </q-card-section>
   </q-card>
   </q-page>
