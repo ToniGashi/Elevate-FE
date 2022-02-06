@@ -1,7 +1,7 @@
 <template>
 
-  <q-btn @mouseover="changeColor"
-         @mouseleave="resetColor"
+  <q-btn @mouseover="selected = true"
+         @mouseleave="selected = false"
          :text-color="textColor"
          :size="size"
          :stretch="stretch"
@@ -74,26 +74,19 @@ export default {
     }
 
   },
+  data () {
+    return {
+      selected: false
+    }
+  },
   mounted () {
     document.querySelector('.nav-link .q-focus-helper').remove()
   },
-  data () {
-    return {
-
-      textColor: this.initColor
-
+  computed: {
+    textColor () {
+      if (this.hover && this.selected) return this.hover
+      return this.initColor
     }
-  },
-  methods: {
-
-    changeColor () {
-      if (this.hover) { this.textColor = this.hover }
-    },
-
-    resetColor () {
-      if (this.hover) { this.textColor = this.initColor }
-    }
-
   }
 }
 </script>

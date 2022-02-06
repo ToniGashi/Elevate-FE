@@ -3,11 +3,11 @@
 
     <nav-link
       :class="[
-        'nav-link',
-        { 'home-brand': homeOnTop },
-        { 'home-brand-shrink': path === '/' && offset !== 0 },
-        { 'regular-brand': path !== '/' }
-        ]"
+      'nav-link',
+      { 'home-brand': homeOnTop },
+      { 'home-brand-shrink': path === '/' && offset !== 0 },
+      { 'regular-brand': path !== '/' }
+      ]"
       init-color="secondary"
       size="lg"
       stretch
@@ -48,6 +48,7 @@ export default {
 
       label: document.title,
       links: [
+        { to: '/', label: 'Home' },
         { to: '/projects', label: 'Projects' },
         // { to: '/about-us', label: 'About' },
         { to: '/contact', label: 'Contact us' },
@@ -58,14 +59,18 @@ export default {
   created () {
     this.$watch(() => this.$store.getters['users/getCurrentUser'].isLoggedIn,
       () => {
-        const isLoggedIn = (window.localStorage.getItem('isLoggedIn') === 'true')
+        const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
 
         if (isLoggedIn) {
-          this.links[2].to = '/profile'
-          this.links[2].label = 'Profile'
+          this.links[this.links.length - 1]
+            .to = '/profile'
+          this.links[this.links.length - 1]
+            .label = 'Profile'
         } else {
-          this.links[2].to = '/sign-up'
-          this.links[2].label = 'Sign Up'
+          this.links[this.links.length - 1]
+            .to = '/sign-up'
+          this.links[this.links.length - 1]
+            .label = 'Sign Up'
         }
       }, { immediate: true })
   }

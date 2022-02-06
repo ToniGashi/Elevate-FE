@@ -14,8 +14,8 @@
       bg-color="white"
       input-style="font-size:17px"
       :input-class="[
-        'form-input',
-        'text-weight-bolder'
+      'form-input',
+      'text-weight-bolder'
       ]"
       :name="input.name"
       :model-value="input.value"

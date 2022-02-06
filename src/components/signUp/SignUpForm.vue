@@ -120,6 +120,10 @@ export default {
   },
   methods: {
     async submitLogIn () {
+      /*
+       Refactoring idea: We should set an expiration date to isLoggedIn
+       in the local storage
+       */
       try {
         const dataLogIn = await this.$axios.post('/api/users/token', {
           email: this.form.email,
@@ -127,10 +131,10 @@ export default {
         })
 
         if (dataLogIn.status === 200 || dataLogIn.status === 201) {
-          this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
-          this.$router.push('/')
           window.localStorage.clear()
-          window.localStorage.setItem('isLoggedIn', true)
+          window.localStorage.setItem('isLoggedIn', 'true')
+          await this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
+          await this.$router.push('/')
         }
       } catch (error) {
         document.getElementById('wrong-log-in-credentials').innerHTML = 'Wrong Credentials'
@@ -147,10 +151,10 @@ export default {
         })
 
         if (dataLogIn.status === 200 || dataLogIn.status === 201) {
-          this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
-          this.$router.push('/')
           window.localStorage.clear()
-          window.localStorage.setItem('isLoggedIn', true)
+          window.localStorage.setItem('isLoggedIn', 'true')
+          await this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
+          await this.$router.push('/')
         }
       } catch (error) {
         console.log(error.message)
