@@ -48,11 +48,11 @@ export default {
 
       label: document.title,
       links: [
-        { to: '/', label: 'Home' },
-        { to: '/projects', label: 'Projects' },
+        { to: '/', label: 'Начало' },
+        { to: '/projects', label: 'Проекти' },
         // { to: '/about-us', label: 'About' },
-        { to: '/contact', label: 'Contact us' },
-        { to: '/sign-up', label: 'Sign Up' }
+        { to: '/contact', label: 'Контакти' },
+        { to: '/sign-up', label: 'Вход' }
       ]
     }
   },
@@ -65,12 +65,12 @@ export default {
           this.links[this.links.length - 1]
             .to = '/profile'
           this.links[this.links.length - 1]
-            .label = 'Profile'
+            .label = 'Потребителски профил'
         } else {
           this.links[this.links.length - 1]
             .to = '/sign-up'
           this.links[this.links.length - 1]
-            .label = 'Sign Up'
+            .label = 'Вход'
         }
       }, { immediate: true })
   }

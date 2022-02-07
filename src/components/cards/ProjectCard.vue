@@ -2,7 +2,7 @@
   <q-card class="bg-grey-2 full-width q-pa-xl"
           square
           flat>
-    <q-card-section class="text-left q-mb-sm">
+    <q-card-section class="text-left">
       <div class="row items-center q-mb-sm">
       <div class="text-h2 text-weight-bold col-auto">
         {{currentProject.name}}
@@ -43,7 +43,7 @@
              'text-h6',
              { 'q-mb-lg': $q.screen.sm }
              ]">
-          Term:
+          Продължителност:
           <span class="text-weight-regular">
           {{currentProject.term}}
           </span>
@@ -69,7 +69,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold text-no-wrap"
-                         :label="`Invest in ${currentProject.name}`"/>
+                         :label="`Дари на ${currentProject.name}`"/>
       </q-card-actions>
 
     </q-card-section>
