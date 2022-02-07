@@ -11,11 +11,11 @@
 
         <div class="text-h5 text-uppercase
              text-weight-bold q-mb-xs">
-          Trusted fundraising for sustainable projects
+          Набиране на средства за устойчиви проекти
         </div>
 
         <div class="text-h6 text-italic text-weight-regular">
-          Start in just 5 minutes
+          За да създадем заедно една по-добра планета
         </div>
 
       </q-card-section>
@@ -28,7 +28,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold"
-                         label="Start Investing"/>
+                         label="Разгледай проектите"/>
 
       </q-card-section>
 

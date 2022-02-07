@@ -32,12 +32,16 @@
              'text-center'
              ]">
 
-        <div :class="$q.screen.xl || $q.screen.lg? 'text-h6':
-             'text-subtitle2'">
+        <div :class="[
+             $q.screen.xl || $q.screen.lg? 'text-h6':
+             'text-subtitle2',
+             { 'q-py-md': !currentObject.motto.length }
+             ]">
           {{currentObject.name}}
         </div>
 
-        <div class="text-overline">
+        <div v-if="currentObject.motto.length"
+             class="text-overline">
           {{currentObject.motto}}
         </div>
 
@@ -64,19 +68,19 @@
 
           <q-item key="project-location">
             <q-item-section>
-              Location: {{currentObject.location}}
+              Локация: {{currentObject.location}}
             </q-item-section>
           </q-item>
 
           <q-item key="project-term">
             <q-item-section>
-              Term: {{currentObject.term}}
+              Продължителност: {{currentObject.term}}
             </q-item-section>
           </q-item>
 
           <q-item key="project-type">
             <q-item-section>
-              Type: {{currentObject.type}}
+              Тип: {{currentObject.type}}
             </q-item-section>
           </q-item>
 

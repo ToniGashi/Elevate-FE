@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <q-btn @click="signOut()">Sign Out</q-btn>
+    <q-btn @click="signOut()">Изход</q-btn>
     <p>{{this.$store.getters['users/getCurrentUser'].first_name}} {{this.$store.getters['users/getCurrentUser'].last_name}}</p>
     <p></p>
   </q-page>

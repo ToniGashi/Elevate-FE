@@ -33,7 +33,7 @@
                        unelevated
                        color="secondary"
                        label-class="text-weight-bold"
-                       label="Send Message"/>
+                       label="Изпрати"/>
     </div>
 
   </q-form>
@@ -61,11 +61,11 @@ export default {
           name: 'fullName',
           value: null,
           type: 'text',
-          placeholder: 'Your name *',
+          placeholder: 'Вашите имена *',
           lazy_rules: true,
           rules: [
             val => val && val.length > 0 ||
-            'Please type your name'
+            'Моля, въведете вашите имена'
           ]
         },
         {
@@ -73,13 +73,13 @@ export default {
           name: 'email',
           value: null,
           type: 'text',
-          placeholder: 'Your email *',
+          placeholder: 'Имейл *',
           lazy_rules: true,
           rules: [
             val => val && val.length > 0 ||
-            'Please type your email',
+            'Моля, въведете вашия имейл',
             v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-            'E-mail must be valid'
+            'Невалиден имейл'
           ]
         },
         {
@@ -87,11 +87,11 @@ export default {
           name: 'message',
           value: null,
           type: 'textarea',
-          placeholder: 'Your message *',
+          placeholder: 'Съобщение *',
           lazy_rules: true,
           rules: [
             val => val && val.length > 0 ||
-              'Please type your message'
+              'Моля, въведете вашето съобщение'
           ]
         }
       ]
