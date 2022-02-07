@@ -9,10 +9,10 @@
        ]">
 
     <div :class="[
-                  { 'col-12': row.length === 1 },
-                  { 'col-6' : row.length === 2 },
-                  { 'col-4' : row.length === 3 }
-                 ]"
+         { 'col-12': row.length === 1 },
+         { 'col-6' : row.length === 2 },
+         { 'col-4' : row.length === 3 }
+         ]"
          v-for="entity in row"
          :key="entity.id">
 

@@ -6,12 +6,12 @@
             class="bg-grey-1">
       <q-card-section>
         <div class="text-h5 text-weight-bold text-left text-blue-grey-9">
-          Active investment opportunities
+          Активни проекти
         </div>
       </q-card-section>
       <q-card-section>
         <standard-grid :data="projects"
-                   :component="projectListCard"/>
+                       :component="projectListCard"/>
       </q-card-section>
   </q-card>
   </q-page>
@@ -39,7 +39,6 @@ export default {
     if (allProjects && allProjects.length) {
       this.projects.push(allProjects[0])
       this.projects.push(allProjects[1])
-      this.projects.push(allProjects[2])
     }
   }
 }

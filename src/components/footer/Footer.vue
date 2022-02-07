@@ -3,7 +3,7 @@
   <q-toolbar inset>
 
     <q-toolbar-title class="text-primary text-subtitle1">
-      Copyright © Your Website 2021
+      GreenFunds © 2022. Всички права запазени.
     </q-toolbar-title>
 
     <nav-link v-for="(link, index) in links"
@@ -29,8 +29,8 @@ export default {
   data () {
     return {
       links: [
-        { to: '/privacy', label: 'Privacy Policy' },
-        { to: '/terms-of-use', label: 'Terms of Use' }
+        { to: '/privacy', label: 'Политика на поверителност' },
+        { to: '/terms-of-use', label: 'Условия на ползване' }
       ]
     }
   }

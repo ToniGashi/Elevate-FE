@@ -10,12 +10,12 @@
       <q-card-section>
 
         <div class="text-h5 text-uppercase
-               text-weight-bold q-mb-xs">
-          Trusted fundraising for sustainable projects
+             text-weight-bold q-mb-xs">
+          Набиране на средства за устойчиви проекти
         </div>
 
         <div class="text-h6 text-italic text-weight-regular">
-          Start in just 5 minutes
+          За да създадем заедно една по-добра планета
         </div>
 
       </q-card-section>
@@ -28,7 +28,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold"
-                         label="Start Investing"/>
+                         label="Разгледай проектите"/>
 
       </q-card-section>
 
@@ -47,10 +47,31 @@ export default {
 
 <style lang="sass" scoped>
 
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 0.8
+
 #header-card
-  background: $header
   padding-top: 10.5rem
   padding-bottom: 6rem
+  position: relative
+  background: rgba(0, 0, 0, 0.2)
+
+#header-card:after
+  content: ""
+  position: absolute
+  background: url("src/assets/cover-photo.jpg") no-repeat center left fixed
+  background-size: cover
+  overflow: hidden
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  opacity: 0.8
+  animation: fadeIn 0.5s
 
 #content-container
   margin-left: 10%

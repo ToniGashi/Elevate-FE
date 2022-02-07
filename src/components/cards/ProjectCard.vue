@@ -2,7 +2,7 @@
   <q-card class="bg-grey-2 full-width q-pa-xl"
           square
           flat>
-    <q-card-section class="text-left q-mb-sm">
+    <q-card-section class="text-left">
       <div class="row items-center q-mb-sm">
       <div class="text-h2 text-weight-bold col-auto">
         {{currentProject.name}}
@@ -30,20 +30,20 @@
       <q-img
         :ratio="16/9"
         :class="[
-          'col-lg-6',
-          'col-sm-12',
-          { 'q-mb-lg': $q.screen.sm }
-          ]"
+        'col-lg-6',
+        'col-sm-12',
+        { 'q-mb-lg': $q.screen.sm }
+        ]"
         :src="currentProject.img"/>
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
                       q-pa-none justify-evenly q-mx-auto">
         <div :class="[
-          'text-h6',
-          { 'q-mb-lg': $q.screen.sm }
-          ]">
-          Term:
+             'text-h6',
+             { 'q-mb-lg': $q.screen.sm }
+             ]">
+          Продължителност:
           <span class="text-weight-regular">
           {{currentProject.term}}
           </span>
@@ -69,7 +69,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold text-no-wrap"
-                         :label="`Invest in ${currentProject.name}`"/>
+                         :label="`Дари на ${currentProject.name}`"/>
       </q-card-actions>
 
     </q-card-section>
