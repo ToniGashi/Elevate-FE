@@ -11,11 +11,11 @@
 
         <div class="text-h5 text-uppercase
              text-weight-bold q-mb-xs">
-          Набиране на средства за устойчиви проекти
+          {{$t('label.headerCard.h5')}}
         </div>
 
         <div class="text-h6 text-italic text-weight-regular">
-          За да създадем заедно една по-добра планета
+          {{$t('label.headerCard.h6')}}
         </div>
 
       </q-card-section>
@@ -28,7 +28,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold"
-                         label="Разгледай проектите"/>
+                         :label="$t('label.headerCard.buttonLabel')"/>
 
       </q-card-section>
 

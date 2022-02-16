@@ -1,18 +1,17 @@
 <template>
 
-  <q-card
-    flat
-    square
-    class="transparent">
+  <q-card flat
+          square
+          class="transparent">
 
     <q-card-section class="text-center text-white text-uppercase">
 
       <div class="text-h3 text-weight-medium q-mb-md">
-        Имате въпрос?
+        {{$t('label.formCard.h3')}}?
       </div>
 
       <div class="text-subtitle2 text-weight-bold">
-        Не се колебайте да се свържете с нас
+        {{$t('label.formCard.subtitle')}}
       </div>
 
     </q-card-section>

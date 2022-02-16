@@ -30,11 +30,10 @@
 
     </q-footer>
 
-    <q-page-container
-      :class="[
-      { 'contact-page': path === '/contact' },
-      { 'sign-up': path === '/sign-up' }
-      ]">
+    <q-page-container :class="[
+                      { 'contact-page': path === '/contact' },
+                      { 'sign-up': path === '/sign-up' }
+                      ]">
       <!-- This is where pages get injected -->
       <router-view />
     </q-page-container>

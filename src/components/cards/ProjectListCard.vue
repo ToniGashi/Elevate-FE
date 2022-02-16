@@ -68,19 +68,23 @@
 
           <q-item key="project-location">
             <q-item-section>
-              Локация: {{currentObject.location}}
+              {{$t('label.projectListCard.location')}}:
+              {{currentObject.location}}
             </q-item-section>
           </q-item>
 
           <q-item key="project-term">
             <q-item-section>
-              Продължителност: {{currentObject.term}}
+              {{$t('label.projectListCard.termLabel')}}:
+              {{currentObject.term}}
+              {{$t('label.projectListCard.termMonths')}}
             </q-item-section>
           </q-item>
 
-          <q-item key="project-type">
+          <q-item key="project-target">
             <q-item-section>
-              Тип: {{currentObject.type}}
+              {{$t('label.projectListCard.target')}}:
+              {{currentObject.targetAmount}}
             </q-item-section>
           </q-item>
 

@@ -1,29 +1,27 @@
 <template>
 
-  <q-form
-    @submit="onSubmit"
-    @reset="onReset"
-    ref="contactForm"
-    class="q-gutter-sm q-mx-auto text-center">
+  <q-form @submit="onSubmit"
+          @reset="onReset"
+          ref="contactForm"
+          class="q-gutter-sm q-mx-auto text-center">
 
-    <q-input
-      v-for="(input, index) in inputs"
-      :key="input.id"
-      outlined
-      color="secondary"
-      bg-color="white"
-      input-style="font-size:17px"
-      :input-class="[
-      'form-input',
-      'text-weight-bolder'
-      ]"
-      :name="input.name"
-      :model-value="input.value"
-      @update:model-value="updateValue(index, $event)"
-      :type="input.type"
-      :placeholder="input.placeholder"
-      :lazy-rules="input.lazy_rules"
-      :rules="input.rules" />
+    <q-input v-for="(input, index) in inputs"
+             :key="input.id"
+             outlined
+             color="secondary"
+             bg-color="white"
+             input-style="font-size:17px"
+             :input-class="[
+             'form-input',
+             'text-weight-bolder'
+             ]"
+             :name="input.name"
+             :model-value="input.value"
+             @update:model-value="updateValue(index, $event)"
+             :type="input.type"
+             :placeholder="input.placeholder"
+             :lazy-rules="input.lazy_rules"
+             :rules="input.rules" />
 
     <div class="q-mt-md">
 
@@ -33,7 +31,7 @@
                        unelevated
                        color="secondary"
                        label-class="text-weight-bold"
-                       label="Изпрати"/>
+                       :label="$t('label.contactForm.buttonLabel')"/>
     </div>
 
   </q-form>
@@ -51,51 +49,55 @@ import StandardButton from 'components/buttons/StandardButton.vue'
 export default {
   name: 'ContactForm',
   components: { StandardButton },
-
   data () {
     return {
-
       inputs: [
         {
           id: 0,
           name: 'fullName',
           value: null,
           type: 'text',
-          placeholder: 'Вашите имена *',
-          lazy_rules: true,
-          rules: [
-            val => val && val.length > 0 ||
-            'Моля, въведете вашите имена'
-          ]
+          lazy_rules: true
         },
         {
           id: 1,
           name: 'email',
           value: null,
           type: 'text',
-          placeholder: 'Имейл *',
-          lazy_rules: true,
-          rules: [
-            val => val && val.length > 0 ||
-            'Моля, въведете вашия имейл',
-            v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-            'Невалиден имейл'
-          ]
+          lazy_rules: true
         },
         {
           id: 2,
           name: 'message',
           value: null,
           type: 'textarea',
-          placeholder: 'Съобщение *',
-          lazy_rules: true,
-          rules: [
-            val => val && val.length > 0 ||
-              'Моля, въведете вашето съобщение'
-          ]
+          lazy_rules: true
         }
       ]
     }
+  },
+  created () {
+    this.$watch(
+      () => this.$i18n.locale,
+      () => {
+        this.inputs[0].placeholder = `${this.$t('label.contactForm.names')} *`
+        this.inputs[0].rules = [
+          val => val && val.length > 0 ||
+            this.$t('error.enterNames')
+        ]
+        this.inputs[1].placeholder = `${this.$t('label.contactForm.email')} *`
+        this.inputs[1].rules = [
+          val => val && val.length > 0 ||
+            this.$t('error.enterEmail'),
+          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+            this.$t('error.invalidEmail')
+        ]
+        this.inputs[2].placeholder = `${this.$t('label.contactForm.message')} *`
+        this.inputs[2].rules = [
+          val => val && val.length > 0 ||
+            this.$t('error.enterMessage')
+        ]
+      }, { immediate: true })
   },
   methods: {
 

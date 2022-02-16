@@ -5,19 +5,18 @@
         404
       </div>
 
-      <div class="text-h2" style="opacity:.4">
-        Страницата не е намерена...
+      <div class="text-h2"
+           style="opacity:.4">
+       {{$t('error.error404')}}
       </div>
 
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Обратно към началната страница"
-        no-caps
-      />
+      <q-btn class="q-mt-xl"
+             color="white"
+             text-color="blue"
+             unelevated
+             to="/"
+             :label="$t('label.errorPage.buttonLabel')"
+             no-caps />
     </div>
   </div>
 </template>
