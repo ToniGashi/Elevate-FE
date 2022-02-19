@@ -1,21 +1,20 @@
 <template>
   <q-toolbar>
 
-    <nav-link
-      :class="[
-      'nav-link',
-      { 'home-brand': homeOnTop },
-      { 'home-brand-shrink': path === '/' && offset !== 0 },
-      { 'regular-brand': path !== '/' }
-      ]"
-      init-color="secondary"
-      size="lg"
-      stretch
-      flat
-      :hover="false"
-      :no-caps="false"
-      :to="path === '/' ? '#header' : '/'"
-      :label="label" />
+    <nav-link :class="[
+              'nav-link',
+              { 'home-brand': homeOnTop },
+              { 'home-brand-shrink': path === '/' && offset !== 0 },
+              { 'regular-brand': path !== '/' }
+              ]"
+              init-color="secondary"
+              size="lg"
+              stretch
+              flat
+              :hover="false"
+              :no-caps="false"
+              :to="path === '/' ? '#header' : '/'"
+              :label="label" />
 
     <q-space />
 
@@ -32,6 +31,27 @@
               :to="link.to"
               :label="link.label"/>
 
+    <q-btn-toggle id="language-toggle"
+                  unelevated
+                  class="q-ml-md"
+                  v-model="$i18n.locale"
+                  dense
+                  flat
+                  :ripple="false"
+                  :toggle-color="homeOnTop
+                  ? 'secondary'
+                  : 'muted'"
+                  :options="localeOptions">
+
+      <template v-slot:bg>
+
+        <q-separator vertical
+                     class="q-ml-sm"
+                     dark />
+      </template>
+
+    </q-btn-toggle>
+
   </q-toolbar>
 
 </template>
@@ -45,34 +65,59 @@ export default {
   props: ['path', 'offset', 'homeOnTop'],
   data () {
     return {
-
       label: document.title,
       links: [
-        { to: '/', label: 'Начало' },
-        { to: '/projects', label: 'Проекти' },
-        // { to: '/about-us', label: 'About' },
-        { to: '/contact', label: 'Контакти' },
-        { to: '/sign-up', label: 'Вход' }
+        { to: '/' },
+        { to: '/projects' },
+        // { to: '/about-us' },
+        { to: '/contact' },
+        { to: '/sign-up' }
+      ],
+      localeOptions: [
+        { value: 'bg', label: 'БГ', slot: 'bg' },
+        { value: 'en-US', label: 'EN' }
       ]
     }
   },
   created () {
-    this.$watch(() => this.$store.getters['users/getCurrentUser'].isLoggedIn,
-      () => {
-        const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
-
-        if (isLoggedIn) {
-          this.links[this.links.length - 1]
-            .to = '/profile'
-          this.links[this.links.length - 1]
-            .label = 'Потребителски профил'
-        } else {
-          this.links[this.links.length - 1]
-            .to = '/sign-up'
-          this.links[this.links.length - 1]
-            .label = 'Вход'
+    this.$watch(() => [
+      this.$i18n.locale,
+      this.$store.getters['users/getCurrentUser'].isLoggedIn
+    ],
+    () => {
+      import(
+        /* webpackInclude: /(bg|en-US)\.js$/ */
+        'quasar/lang/' + this.$i18n.locale
+      ).then(lang => {
+        this.$q.lang.set(lang.default)
+        const storedLocale = this.$q.cookies.get('locale')
+        if (this.$i18n.locale !== storedLocale) {
+          this.$q.cookies.set('locale', this.$i18n.locale,
+            { path: '/' })
         }
-      }, { immediate: true })
+      })
+      this.links[0].label = this.$t('label.navLink.home')
+      this.links[1].label = this.$t('label.navLink.projects')
+      this.links[2].label = this.$t('label.navLink.contact')
+      this.links[3].label = this.$t('label.navLink.signUp')
+      const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
+      if (isLoggedIn) {
+        this.links[this.links.length - 1]
+          .to = '/profile'
+        this.links[this.links.length - 1]
+          .label = this.$t('label.navLink.profile')
+      } else {
+        this.links[this.links.length - 1]
+          .to = '/sign-up'
+        this.links[this.links.length - 1]
+          .label = this.$t('label.navLink.signUp')
+      }
+    }, { immediate: true })
+  },
+  mounted () {
+    const toggleGroup = document.querySelector('#language-toggle')
+    toggleGroup.querySelectorAll('button .q-focus-helper')
+      .forEach(focusHelper => focusHelper.remove())
   }
 }
 

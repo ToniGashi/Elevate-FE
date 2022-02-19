@@ -3,7 +3,7 @@
   <q-toolbar inset>
 
     <q-toolbar-title class="text-primary text-subtitle1">
-      GreenFunds © 2022. Всички права запазени.
+      GreenFunds © 2022. {{$t('label.footer.copyright')}}.
     </q-toolbar-title>
 
     <nav-link v-for="(link, index) in links"
@@ -29,10 +29,18 @@ export default {
   data () {
     return {
       links: [
-        { to: '/privacy', label: 'Политика на поверителност' },
-        { to: '/terms-of-use', label: 'Условия на ползване' }
+        { to: '/privacy' },
+        { to: '/terms-of-use' }
       ]
     }
+  },
+  created () {
+    this.$watch(
+      () => this.$i18n.locale,
+      () => {
+        this.links[0].label = this.$t('label.footer.privacyPolicy')
+        this.links[1].label = this.$t('label.footer.termsOfUse')
+      }, { immediate: true })
   }
 }
 </script>

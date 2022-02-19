@@ -2,7 +2,7 @@
   <q-page padding>
     <template v-if="!$route.params.id">
     <div class="text-h4 text-weight-bold text-left q-mb-xl text-blue-grey-9">
-      Налични проекти
+      {{$t('label.marketplace.availableProjects')}}
     </div>
     <standard-grid :data="data"
                    :component="projectListCard"/>

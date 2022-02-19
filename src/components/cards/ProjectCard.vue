@@ -11,11 +11,13 @@
                  color="primary"
                  class="col-auto on-right"
                  size="sm"/>
-      <q-icon v-else
-              :name="`img:icons/flags/${iconFile}.svg`"
-              class="col-auto shadow-5 q-mt-sm q-mb-xs"
-              right
-              size="lg"/>
+        <q-avatar v-else
+                  size="md"
+                  square
+                  class="shadow-5 col-auto on-right q-mt-sm q-mb-xs">
+          <img :src="`icons/flags/${iconFile}.svg`"
+               :alt="`flag of ${iconFile}`">
+        </q-avatar>
       </div>
       <div class="text-subtitle1 text-weight-medium
            text-muted text-italic q-mb-sm">
@@ -27,14 +29,13 @@
     </q-card-section>
 
     <q-card-section class="row">
-      <q-img
-        :ratio="16/9"
-        :class="[
-        'col-lg-6',
-        'col-sm-12',
-        { 'q-mb-lg': $q.screen.sm }
-        ]"
-        :src="currentProject.img"/>
+      <q-img :ratio="16/9"
+             :class="[
+             'col-lg-6',
+             'col-sm-12',
+             { 'q-mb-lg': $q.screen.sm }
+             ]"
+             :src="currentProject.img"/>
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
@@ -43,9 +44,10 @@
              'text-h6',
              { 'q-mb-lg': $q.screen.sm }
              ]">
-          Продължителност:
+            {{$t('label.projectCard.termLabel')}}:
           <span class="text-weight-regular">
-          {{currentProject.term}}
+            {{currentProject.term}}
+            {{$t('label.projectCard.termMonths')}}
           </span>
         </div>
 
@@ -69,7 +71,8 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold text-no-wrap"
-                         :label="`Дари на ${currentProject.name}`"/>
+                         :label="$t('label.projectCard.buttonLabel') +
+                         currentProject.name"/>
       </q-card-actions>
 
     </q-card-section>
@@ -99,13 +102,9 @@ export default {
             .split('%')[0]) / 100
         }
         if (this.currentProject.location) {
-          const country = this.currentProject.location.split(',')[1]
-
-          this.$axios.get(`https://restcountries.com/v3.1/name/${country}`)
-            .then(response => {
-              this.iconFile = response.data[0].cca2.toLowerCase()
-              this.isLoading = false
-            })
+          this.iconFile = this.currentProject.location.split(', ')[1]
+            .toLowerCase()
+          this.isLoading = false
         }
       }
     )
