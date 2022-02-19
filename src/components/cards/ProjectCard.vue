@@ -114,7 +114,7 @@ export default {
   },
   methods: {
     trackDonationButton () {
-      gtm.logEvent('tracking', 'donationTrack', 'Donation Button clicked', 99.90)
+      gtm.logEvent('tracking', 'donationTrack', 'Donation Button clicked', 99.90, `/project/${this.currentProject.id}`)
     }
   }
 }
