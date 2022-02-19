@@ -71,6 +71,7 @@
                          unelevated
                          color="secondary"
                          label-class="text-weight-bold text-no-wrap"
+                         @click="trackDonationButton"
                          :label="$t('label.projectCard.buttonLabel') +
                          currentProject.name"/>
       </q-card-actions>
@@ -81,6 +82,8 @@
 
 <script>
 import StandardButton from 'components/buttons/StandardButton.vue'
+import gtm from 'components/gtm.js'
+
 export default {
   name: 'ProjectCard',
   props: ['currentProject'],
@@ -108,6 +111,11 @@ export default {
         }
       }
     )
+  },
+  methods: {
+    trackDonationButton () {
+      gtm.logEvent('tracking', 'donationTrack', 'Donation Button clicked', 99.90)
+    }
   }
 }
 </script>
