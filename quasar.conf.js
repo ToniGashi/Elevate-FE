@@ -25,7 +25,7 @@ module.exports = configure(function (ctx) {
     boot: [
       'axios',
       'routevalidator',
-      'gtmplugin',
+      'analytics',
       'i18n'
     ],
 
@@ -124,8 +124,7 @@ module.exports = configure(function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Cookies',
-        'gtm-plugin'
+        'Cookies'
       ]
     },
 
