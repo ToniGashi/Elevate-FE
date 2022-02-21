@@ -1,18 +1,19 @@
 <template>
-  <q-layout :view="path === '/'
+  <q-layout :view="path === '/' || path === '/about'
             ? 'hhh Lpr fff'
             : 'hHh Lpr fff'"
             @scroll="determineOffset">
     <!-- Be sure to play with the Layout demo on docs -->
 
     <q-header id="header"
-              :elevated="path !== '/'">
+              :elevated="path !== '/' && path !=='/about'">
 
     <header-card v-if="path === '/'"/>
+    <about v-if="path === '/about'"/>
 
     <nav-bar id="nav-bar"
              :class="[
-             { 'fixed-top': path === '/' },
+             { 'fixed-top': path === '/' || path === '/about'},
              { 'bg-primary': !homePageOnTop }
              ]"
              :path="path"
@@ -45,10 +46,11 @@
 
 import NavBar from 'components/header/NavBar.vue'
 import HeaderCard from 'components/cards/HeaderCard.vue'
+import About from 'components/about/About.vue'
 import Footer from 'components/footer/Footer.vue'
 export default {
   name: 'MainLayout',
-  components: { Footer, HeaderCard, NavBar },
+  components: { Footer, HeaderCard, NavBar, About },
   data () {
     return {
 
@@ -59,7 +61,7 @@ export default {
   computed: {
 
     homePageOnTop () {
-      return this.path === '/' && this.offset === 0
+      return ((this.path === '/' || this.path === '/about') && this.offset === 0)
     },
 
     path () {

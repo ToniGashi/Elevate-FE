@@ -24,6 +24,9 @@ export default {
       h6: 'За да създадем заедно една по-добра планета',
       buttonLabel: 'Разгледай проектите'
     },
+    aboutCard: {
+      h3: 'Hi'
+    },
     projectCard: {
       termLabel: 'Продължителност',
       termMonths: 'месеца',
@@ -50,6 +53,7 @@ export default {
       home: 'Начало',
       projects: 'Проекти',
       contact: 'Контакти',
+      about: 'За нас',
       signUp: 'Вход',
       profile: 'Потребителски профил'
     },

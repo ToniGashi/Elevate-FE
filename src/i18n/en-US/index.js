@@ -24,6 +24,13 @@ export default {
       h6: 'Building a better planet together',
       buttonLabel: 'View projects'
     },
+    aboutCard: {
+      greeting: 'Hi! We are GreenFunds!',
+      greeting_subtext: 'We work with gods ...',
+      aim: 'Our aim',
+      aim_subtext: 'We wanna be gods ...',
+      more: 'We are more than just...'
+    },
     projectCard: {
       termLabel: 'Term',
       termMonths: 'months',
@@ -50,6 +57,7 @@ export default {
       home: 'Home',
       projects: 'Projects',
       contact: 'Contact us',
+      about: 'About us',
       signUp: 'Sign up',
       profile: 'Profile'
     },

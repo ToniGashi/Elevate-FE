@@ -4,8 +4,8 @@
     <nav-link :class="[
               'nav-link',
               { 'home-brand': homeOnTop },
-              { 'home-brand-shrink': path === '/' && offset !== 0 },
-              { 'regular-brand': path !== '/' }
+              { 'home-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
+              { 'regular-brand': (path !== '/' || path !== '/about') }
               ]"
               init-color="secondary"
               size="lg"
@@ -69,7 +69,7 @@ export default {
       links: [
         { to: '/' },
         { to: '/projects' },
-        // { to: '/about-us' },
+        { to: '/about' },
         { to: '/contact' },
         { to: '/sign-up' }
       ],
@@ -98,8 +98,9 @@ export default {
       })
       this.links[0].label = this.$t('label.navLink.home')
       this.links[1].label = this.$t('label.navLink.projects')
-      this.links[2].label = this.$t('label.navLink.contact')
-      this.links[3].label = this.$t('label.navLink.signUp')
+      this.links[2].label = this.$t('label.navLink.about')
+      this.links[3].label = this.$t('label.navLink.contact')
+      this.links[4].label = this.$t('label.navLink.signUp')
       const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
       if (isLoggedIn) {
         this.links[this.links.length - 1]

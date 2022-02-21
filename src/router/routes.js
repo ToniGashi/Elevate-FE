@@ -18,6 +18,7 @@ const routes = [
           { path: ':id(\\d+)', component: () => import('pages/Project.vue') }
         ]
       },
+      { path: 'about', component: () => import('pages/About.vue') },
       { path: 'sign-up', component: () => import('pages/SignUp.vue') },
       { path: 'profile', component: () => import('pages/Profile.vue') }
     ]
