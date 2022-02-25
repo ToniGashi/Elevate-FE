@@ -5,7 +5,7 @@
               'nav-link',
               { 'home-brand': homeOnTop },
               { 'home-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
-              { 'regular-brand': (path !== '/' || path !== '/about') }
+              { 'regular-brand': (path !== '/' && path !== '/about') }
               ]"
               init-color="secondary"
               size="lg"

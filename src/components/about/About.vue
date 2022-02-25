@@ -3,32 +3,6 @@
   <q-card flat
         square
         dark
-        id="about">
-
-    <div id="content-container"
-        class="text-no-wrap">
-
-      <q-card-section class="row justify-between">
-
-        <div class="text-h3 col
-            text-weight-bold q-mb-xs">
-          {{$t('label.aboutCard.greeting')}}
-          <q-separator color="white" spaced="lg" style="height:0.5rem; width:25rem"/>
-          <h5 class="q-mt-sm text-weight-bold">{{$t('label.aboutCard.greeting_subtext')}}</h5>
-        </div>
-
-        <div class="col">
-          <img src='../../assets/about-us-1.png' style="width:30rem;">
-        </div>
-
-      </q-card-section>
-    </div>
-
-  </q-card>
-
-  <q-card flat
-        square
-        dark
         id="about-2">
 
     <div id="content-container"
@@ -37,7 +11,7 @@
       <q-card-section class="row justify-between">
 
         <div class="col">
-          <img src='../../assets/about-us-2.png' style="width:30rem;">
+          <q-img src='../../assets/about-us-2.png' style="width:30rem;"></q-img>
         </div>
         <div class="text-h3 col
             text-weight-bold q-mb-xs" style="color:rgba(25,83,69,1)">
@@ -61,7 +35,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-1.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-1.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Toni Gashi</h4>
             <h6 class="text-weight-bold">Web Designer</h6>
@@ -75,7 +49,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-2.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-2.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Satyam Tiwari</h4>
             <h6 class="text-weight-bold">Web Developer</h6>
@@ -89,7 +63,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-3.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-3.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Salim Malik</h4>
             <h6 class="text-weight-bold">Front End Developer</h6>
@@ -104,7 +78,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-4.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-4.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Toni Gashi</h4>
             <h6 class="text-weight-bold">Web Designer</h6>
@@ -118,7 +92,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-5.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-5.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Satyam Tiwari</h4>
             <h6 class="text-weight-bold">Web Developer</h6>
@@ -132,7 +106,7 @@
         <div class="col-md-3">
           <div class="card-box text-center">
             <div class="user-pic">
-              <img src="../../assets/img-6.jpg" class="img-fluid" alt="User Pic">
+              <q-img src="../../assets/img-6.jpg" class="img-fluid" alt="User Pic"></q-img>
             </div>
             <h4 class="text-weight-bold">Salim Malik</h4>
             <h6 class="text-weight-bold">Front End Developer</h6>
@@ -158,12 +132,6 @@
     opacity: 0
   to
     opacity: 0.8
-
-#about
-  padding-top: 10.5rem
-  padding-bottom: 6rem
-  position: relative
-  background: rgba(111, 183, 146, 0.5)
 
 #about-2
   padding-top: 10.5rem

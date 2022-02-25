@@ -46,7 +46,7 @@
 
 import NavBar from 'components/header/NavBar.vue'
 import HeaderCard from 'components/cards/HeaderCard.vue'
-import About from 'components/about/About.vue'
+import About from 'components/cards/AboutCard.vue'
 import Footer from 'components/footer/Footer.vue'
 export default {
   name: 'MainLayout',
