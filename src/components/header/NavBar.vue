@@ -3,8 +3,8 @@
 
     <nav-link :class="[
               'nav-link',
-              { 'home-brand': homeOnTop },
-              { 'home-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
+              { 'page-top-brand': pageOnTop },
+              { 'page-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
               { 'regular-brand': (path !== '/' && path !== '/about') }
               ]"
               init-color="secondary"
@@ -24,7 +24,7 @@
               init-color="white"
               stretch
               flat
-              :hover="homeOnTop
+              :hover="pageOnTop
               ? 'secondary'
               : 'muted'"
               no-caps
@@ -38,7 +38,7 @@
                   dense
                   flat
                   :ripple="false"
-                  :toggle-color="homeOnTop
+                  :toggle-color="pageOnTop
                   ? 'secondary'
                   : 'muted'"
                   :options="localeOptions">
@@ -62,7 +62,7 @@ import NavLink from 'components/navigation/NavLink.vue'
 export default {
   name: 'NavBar',
   components: { NavLink },
-  props: ['path', 'offset', 'homeOnTop'],
+  props: ['path', 'offset', 'pageOnTop'],
   data () {
     return {
       label: document.title,
@@ -130,13 +130,13 @@ $transition: transform 0.35s linear
 $transform-origin: left
 $transform-style: flat
 
-.home-brand
+.page-top-brand
   transition: $transition
   transform-origin: $transform-origin
   transform-style: $transform-style
   transform: scale(1)
 
-.home-brand-shrink
+.page-brand-shrink
   transition: $transition
   transform-origin: $transform-origin
   transform-style: $transform-style

@@ -1,13 +1,13 @@
 <template>
   <q-page padding>
-    <Aboutus></Aboutus>
+    <about-us></about-us>
   </q-page>
 </template>
 
 <script>
-import Aboutus from 'components/about/About.vue'
+import AboutUs from 'components/about/AboutUs.vue'
 export default {
   name: 'About',
-  components: { Aboutus }
+  components: { AboutUs }
 }
 </script>

@@ -1,23 +1,22 @@
 <template>
   <q-card flat
-        square
-        dark
-        id="about">
+          square
+          dark
+          id="about-card">
 
-    <div id="content-container"
-        class="text-no-wrap">
+    <div class="text-no-wrap">
 
       <q-card-section class="row justify-around">
 
-        <div class="text-h3 col q-my-auto
-            text-weight-bold q-mb-md">
+        <div class="text-h5 col q-my-auto
+             text-weight-bold q-mb-md">
           {{$t('label.aboutCard.greeting')}}
-          <q-separator color="white" spaced="lg" style="height:0.5rem; width:25rem"/>
-          <h5 class="q-mt-sm text-weight-bold">{{$t('label.aboutCard.greeting_subtext')}}</h5>
+          <q-separator color="white" spaced style="height:0.5rem; width:25rem"/>
+          <div class="q-mt-sm text-weight-bold">{{$t('label.aboutCard.greeting_subtext')}}</div>
         </div>
 
         <div class="col">
-          <q-img src='../../assets/about-us-1.png' style="width:30rem;"></q-img>
+          <q-img src='~assets/about-us-1.png' width="30rem" no-spinner/>
         </div>
 
       </q-card-section>
@@ -27,13 +26,13 @@
 </template>
 
 <script>
-export default ({
-  name: 'about-us'
-})
+export default {
+  name: 'AboutCard'
+}
 </script>
 
 <style lang="sass" scoped>
-#about
+#about-card
   padding-top: 10.5rem
   padding-bottom: 6rem
   position: relative

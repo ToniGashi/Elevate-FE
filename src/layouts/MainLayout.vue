@@ -9,16 +9,16 @@
               :elevated="path !== '/' && path !=='/about'">
 
     <header-card v-if="path === '/'"/>
-    <about v-if="path === '/about'"/>
+    <about-card v-if="path === '/about'"/>
 
     <nav-bar id="nav-bar"
              :class="[
              { 'fixed-top': path === '/' || path === '/about'},
-             { 'bg-primary': !homePageOnTop }
+             { 'bg-primary': !pageOnTop }
              ]"
              :path="path"
              :offset="offset"
-             :home-on-top="homePageOnTop"/>
+             :page-on-top="pageOnTop"/>
 
     </q-header>
 
@@ -46,11 +46,11 @@
 
 import NavBar from 'components/header/NavBar.vue'
 import HeaderCard from 'components/cards/HeaderCard.vue'
-import About from 'components/cards/AboutCard.vue'
 import Footer from 'components/footer/Footer.vue'
+import AboutCard from 'components/cards/AboutCard.vue'
 export default {
   name: 'MainLayout',
-  components: { Footer, HeaderCard, NavBar, About },
+  components: { AboutCard, Footer, HeaderCard, NavBar },
   data () {
     return {
 
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
 
-    homePageOnTop () {
+    pageOnTop () {
       return ((this.path === '/' || this.path === '/about') && this.offset === 0)
     },
 
