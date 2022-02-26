@@ -195,6 +195,7 @@
 
 <script>
 import useVuelidate from '@vuelidate/core'
+import { Loading, QSpinnerHearts } from 'quasar'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
 
 export default {
@@ -221,6 +222,12 @@ export default {
        Refactoring idea: We should set an expiration date to isLoggedIn
        in the local storage. Use Cookies/LocalStorage plugin.
        */
+
+      Loading.show({
+        spinner: QSpinnerHearts,
+        message: 'Logging you in',
+        backgroundColor: 'green-5'
+      })
       try {
         const dataLogIn = await this.$axios.post('/api/users/token', {
           email: this.form.email,
@@ -237,9 +244,16 @@ export default {
       } catch (error) {
         this.wrongCredentials = true
         console.log(error)
+      } finally {
+        Loading.hide()
       }
     },
     async submitRegister () {
+      Loading.show({
+        spinner: QSpinnerHearts,
+        message: 'Registering your account',
+        backgroundColor: 'green-5'
+      })
       try {
         const dataLogIn = await this.$axios.post('/api/users', {
           first_name: this.form.firstName,
@@ -256,6 +270,8 @@ export default {
         }
       } catch (error) {
         console.log(error.message)
+      } finally {
+        Loading.hide()
       }
     }
   },
