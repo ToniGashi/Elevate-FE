@@ -37,93 +37,23 @@
 
     </div>
 
-    <div class="our-team-container q-mt-xl" style="color:rgba(25,83,69,1)">
-      <div class="row justify-around">
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-1.jpg" class="img-fluid" alt="user pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Toni Gashi</h4>
-            <h6 class="text-weight-bold">Web Designer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
+    <div id="our-team-container" class="q-mt-xl" style="color:rgba(25,83,69,1)">
+        <div class="card-box text-center">
+          <div class="user-pic">
+            <q-img src="../../assets/img-1.jpg" class="img-fluid" alt="user pic"></q-img>
           </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-2.jpg" class="img-fluid" alt="User Pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Satyam Tiwari</h4>
-            <h6 class="text-weight-bold">Web Developer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
+          <h4 class="text-weight-bold">Toni Gashi</h4>
+          <h6 class="text-weight-bold">Web Designer</h6>
+          <q-separator spaced/>
+          <div class="text-body1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            In sed sem ut metus commodo porttitor facilisis vel turpis.
+            Vivamus id nunc egestas, porttitor odio id, fermentum lorem.
+            In viverra fringilla erat vitae maximus.
           </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-3.jpg" class="img-fluid" alt="User Pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Salim Malik</h4>
-            <h6 class="text-weight-bold">Front End Developer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-around">
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-4.jpg" class="img-fluid" alt="User Pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Toni Gashi</h4>
-            <h6 class="text-weight-bold">Web Designer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-5.jpg" class="img-fluid" alt="User Pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Satyam Tiwari</h4>
-            <h6 class="text-weight-bold">Web Developer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card-box text-center">
-            <div class="user-pic">
-              <q-img src="../../assets/img-6.jpg" class="img-fluid" alt="User Pic"></q-img>
-            </div>
-            <h4 class="text-weight-bold">Salim Malik</h4>
-            <h6 class="text-weight-bold">Front End Developer</h6>
-            <hr>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <hr>
-            <a href="#" class="btn btn-primary">Know More</a>
-          </div>
-        </div>
-      </div>
+          <q-separator spaced/>
+          <router-link to="/" class="btn btn-primary">Learn More</router-link>
+       </div>
     </div>
   </q-card>
 </template>
@@ -135,7 +65,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
 #about-us
   padding-top: 10.5rem
   padding-bottom: 6rem
@@ -171,8 +100,4 @@ export default {
 
 .card-box:hover
   border: 1px solid #007bff
-
-.card-box p
-    color: #808080
-
 </style>
