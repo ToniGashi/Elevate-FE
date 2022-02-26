@@ -9,10 +9,10 @@
 
       <q-card-section class="row justify-between">
 
-        <div class="col">
+        <div class="col-lg-6 col-md-12">
           <q-img src='../../assets/about-us-2.png' style="width:30rem;" />
         </div>
-        <div class="text-h3 col
+        <div class="text-h3 col-lg-6 col-md-12
             text-weight-bold q-mb-xs" style="color:rgba(25,83,69,1)">
           {{$t('label.aboutCard.aim')}}
           <h5 class="q-mt-lg text-weight-bold">{{$t('label.aboutCard.aim_subtext')}}</h5>
@@ -21,12 +21,20 @@
       </q-card-section>
     </div>
 
-    <div>
+    <div id="mission">
       <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
 
-      <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.more')}}</h3>
+      <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.mission')}}</h3>
 
       <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
+    </div>
+
+    <div id="vision">
+
+      <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.vision')}}</h3>
+
+      <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
+
     </div>
 
     <div class="our-team-container q-mt-xl" style="color:rgba(25,83,69,1)">

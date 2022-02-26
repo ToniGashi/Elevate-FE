@@ -29,7 +29,8 @@ export default {
       greeting_subtext: 'We work with gods ...',
       aim: 'Our aim',
       aim_subtext: 'We wanna be gods ...',
-      more: 'We are more than just...'
+      mission: 'Mission',
+      vision: 'Vision'
     },
     projectCard: {
       termLabel: 'Term',
