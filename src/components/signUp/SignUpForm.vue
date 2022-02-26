@@ -280,19 +280,19 @@ export default {
       form: {
         firstName: {
           required,
-          $lazy: false
+          $lazy: true
         },
         lastName: {
           required,
-          $lazy: false
+          $lazy: true
         },
         email: {
           required,
           email,
-          $lazy: false
+          $lazy: true
         },
-        password: { required, minLength: minLength(6), $lazy: false },
-        confirmPassword: { required, sameAsPassword: sameAs(this.form.password), $lazy: false }
+        password: { required, minLength: minLength(6), $lazy: true },
+        confirmPassword: { required, sameAsPassword: sameAs(this.form.password), $lazy: true }
       },
       $lazy: true
     }
