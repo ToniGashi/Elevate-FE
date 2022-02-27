@@ -36,13 +36,10 @@
       <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
 
     </div>
-
-    <!-- <div id="our-team-container" class="q-mt-xl" style="color:rgba(25,83,69,1)"> -->
-      <q-card-section>
+      <q-card-section class="q-mt-xl" style="color:rgba(25,83,69,1)">
         <standard-grid :data="teamList"
                        :component="teamListCard"/>
       </q-card-section>
-    <!-- </div> -->
   </q-card>
 </template>
 
@@ -60,56 +57,55 @@ export default {
           id: 0,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-1.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-1',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          link: '/'
         },
         {
           id: 1,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-2.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-2',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          link: '/'
         },
         {
           id: 2,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-3.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-3',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          link: '/'
         },
         {
           id: 3,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-4.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-4',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          link: '/'
         },
         {
           id: 4,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-5.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-5',
+          description: 'Lorem ipsum dolor sit ametel turpis.',
+          link: '/'
         },
         {
           id: 5,
           fullName: 'Toni Gashi',
           job: 'Chief Technology Officer',
-          image: '~/assets/img-6.jpg',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed sem ut metus commodo porttitor facilisis vel turpis. Vivamus id nunc egestas, porttitor odio id, fermentum lorem. In viverra fringilla erat vitae maximus.',
-          link: 'http://google.com'
+          image: 'img-6',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          link: '/'
         }
       ],
       teamListCard: {}
     }
   },
   created () {
-    console.log(this.teamList)
     this.teamListCard = shallowRef(defineAsyncComponent(
       () => import('components/cards/TeamListCard.vue')
     ))
@@ -127,30 +123,4 @@ export default {
 #content-container
   margin-left: 9rem
   margin-right: 5%
-
-.user-pic
-  width: 150px
-  height: 150px
-  overflow: hidden
-  border-radius: 100%
-  margin: 20px auto 20px
-  border-left: 3px solid #ddd
-  border-right: 3px solid #ddd
-  border-top: 3px solid #007bff
-  border-bottom: 3px solid #007bff
-  transition: 0.5s
-
-.card-box:hover .user-pic
-    transform: scale(1.1)
-.card-box
-    padding: 15px
-    background-color: #fdfdfd
-    margin: 20px 0
-    border-radius: 10px
-    border: 1px solid #eee
-    box-shadow: 0 0 8px 0 #d4d4d4
-    transition: 0.5s
-
-.card-box:hover
-  border: 1px solid #007bff
 </style>

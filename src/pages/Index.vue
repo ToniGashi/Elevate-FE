@@ -32,7 +32,6 @@ export default {
     }
   },
   created () {
-    console.log(this.projects)
     this.projectListCard = shallowRef(defineAsyncComponent(
       () => import('components/cards/ProjectListCard.vue')
     ))
