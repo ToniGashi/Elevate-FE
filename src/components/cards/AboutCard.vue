@@ -8,14 +8,14 @@
 
       <q-card-section class="row justify-around">
 
-        <div class="text-h5 col q-my-auto
+        <div class="text-h5 col q-my-auto col-3
              text-weight-bold q-mb-md">
           {{$t('label.aboutCard.greeting')}}
           <q-separator color="white" spaced style="height:0.5rem; width:25rem"/>
           <div class="q-mt-sm text-weight-bold">{{$t('label.aboutCard.greeting_subtext')}}</div>
         </div>
 
-        <div class="col">
+        <div class="col-4">
           <q-img src='~assets/about-us-1.png' width="30rem" no-spinner/>
         </div>
 

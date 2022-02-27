@@ -13,7 +13,7 @@
         <standard-grid :data="projects"
                        :component="projectListCard"/>
       </q-card-section>
-  </q-card>
+    </q-card>
   </q-page>
 </template>
 
@@ -32,6 +32,7 @@ export default {
     }
   },
   created () {
+    console.log(this.projects)
     this.projectListCard = shallowRef(defineAsyncComponent(
       () => import('components/cards/ProjectListCard.vue')
     ))
