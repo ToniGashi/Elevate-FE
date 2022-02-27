@@ -26,11 +26,10 @@ export default {
     },
     aboutCard: {
       greeting: 'Hi! We are GreenFunds!',
-      greeting_subtext: 'We work with gods ...',
+      greeting_subtext: 'GreenFunds is a team of six students from the American University in Bulgaria (AUBG). United around the idea of contributing to Bulgaria’s sustainable development through a platform for financial support and investment in green projects, we allow non-government institutions to quickly and easily raise funds from individual patrons. ',
       aim: 'Our aim',
-      aim_subtext: 'We wanna be gods ...',
-      mission: 'Mission',
-      vision: 'Vision'
+      aim_subtext: 'GreenFunds is a team of six students from the American University in Bulgaria (AUBG). United around the idea of contributing to Bulgaria’s sustainable development through a platform for financial support and investment in green projects, we allow non-government institutions to quickly and easily raise funds from individual patrons. ',
+      vision: 'Our purpose is to enable anyone to help the protection of the planet.'
     },
     projectCard: {
       termLabel: 'Term',

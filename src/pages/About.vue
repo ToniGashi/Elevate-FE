@@ -9,11 +9,11 @@
 
       <q-card-section class="row justify-between">
 
-        <div class="col-lg-6 col-md-12">
-          <q-img src='~/assets/about-us-2.png' style="width:30rem;" />
+        <div class="col-4">
+          <q-img src='~/assets/about-us-2.png' width="30rem" no-spinner/>
         </div>
-        <div class="text-h3 col-lg-6 col-md-12
-            text-weight-bold q-mb-xs" style="color:rgba(25,83,69,1)">
+
+        <div class="text-h3 col-6 text-weight-bold" :style="{'white-space': 'pre-line', 'color':'rgba(25,83,69,1)'}">
           {{$t('label.aboutCard.aim')}}
           <h5 class="q-mt-lg text-weight-bold">{{$t('label.aboutCard.aim_subtext')}}</h5>
         </div>
@@ -21,15 +21,9 @@
       </q-card-section>
     </div>
 
-    <div id="mission">
-      <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
-
-      <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.mission')}}</h3>
+    <div id="vision" class="q-mt-xl">
 
       <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
-    </div>
-
-    <div id="vision">
 
       <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.vision')}}</h3>
 
@@ -63,40 +57,40 @@ export default {
         },
         {
           id: 1,
-          fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
+          fullName: 'Mihael Trifonov',
+          job: 'Chief Executive Officer',
           image: 'img-2',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           link: '/'
         },
         {
           id: 2,
-          fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
+          fullName: 'Martin Mitev',
+          job: 'Front-end Developer',
           image: 'img-3',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           link: '/'
         },
         {
           id: 3,
-          fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
+          fullName: 'Vasi Stoyanov',
+          job: 'Chief Marketing Officer',
           image: 'img-4',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           link: '/'
         },
         {
           id: 4,
-          fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
+          fullName: 'Marty Stanchev',
+          job: 'Chief Executive Officer',
           image: 'img-5',
           description: 'Lorem ipsum dolor sit ametel turpis.',
           link: '/'
         },
         {
           id: 5,
-          fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
+          fullName: 'Lazaron Shyta',
+          job: 'Back-end Developer',
           image: 'img-6',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           link: '/'
