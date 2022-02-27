@@ -101,7 +101,8 @@ export default {
     invalidPassword: 'The password must consist of at least 6 symbols',
     invalidConfirmPassword: 'Passwords must match',
     wrongCredentials: 'Wrong credentials',
-    error404: 'Page not found...'
+    error404: 'Page not found...',
+    invalidMessage: 'Message must be longer than 6 characters'
   },
   date: {
     days: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
