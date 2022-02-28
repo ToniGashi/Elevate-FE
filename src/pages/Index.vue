@@ -13,7 +13,7 @@
         <standard-grid :data="projects"
                        :component="projectListCard"/>
       </q-card-section>
-  </q-card>
+    </q-card>
   </q-page>
 </template>
 
