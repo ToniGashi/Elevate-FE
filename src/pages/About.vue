@@ -9,11 +9,11 @@
 
       <q-card-section class="row justify-between">
 
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6">
           <q-img src='~/assets/about-us-2.png' width="30rem" no-spinner/>
         </div>
 
-        <div class="text-h3 col-6 text-weight-bold" :style="{'white-space': 'pre-line', 'color':'rgba(25,83,69,1)'}">
+        <div class="text-h3 col-lg-6 text-weight-bold" :style="{'white-space': 'pre-line', 'color':'rgba(25,83,69,1)'}">
           {{$t('label.aboutCard.aim')}}
           <h5 class="q-mt-lg text-weight-bold">{{$t('label.aboutCard.aim_subtext')}}</h5>
         </div>

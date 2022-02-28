@@ -9,9 +9,11 @@
       <q-card-section class="row wrap justify-evenly">
 
         <div class="text-h5 q-my-auto text-weight-bold col-6" :style="{'white-space': 'pre-line'}">
-          {{$t('label.aboutCard.greeting')}}
+          {{$t('label.aboutCard.aboutLabel')}}
           <q-separator color="white" spaced style="height:0.5rem; width:25rem"/>
-          <div class="q-mt-sm text-weight-bold">{{$t('label.aboutCard.greeting_subtext')}}</div>
+          <div class="q-mt-sm text-weight-bold">
+            {{$t('label.aboutCard.aboutText')}}
+          </div>
         </div>
 
         <div class="col-4">

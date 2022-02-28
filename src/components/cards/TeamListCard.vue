@@ -10,7 +10,9 @@
       {{currentObject.description}}
     </div>
     <q-separator spaced/>
-    <router-link :to="currentObject.link">Learn More</router-link>
+    <router-link :to="currentObject.link">
+      {{$t('label.teamListCard.learnMore')}}
+    </router-link>
   </div>
 </template>
 
