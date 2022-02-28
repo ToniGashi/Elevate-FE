@@ -3,9 +3,9 @@
 
     <nav-link :class="[
               'nav-link',
-              { 'home-brand': homeOnTop },
-              { 'home-brand-shrink': path === '/' && offset !== 0 },
-              { 'regular-brand': path !== '/' }
+              { 'page-top-brand': pageOnTop },
+              { 'page-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
+              { 'regular-brand': (path !== '/' && path !== '/about') }
               ]"
               init-color="secondary"
               size="lg"
@@ -24,7 +24,7 @@
               init-color="white"
               stretch
               flat
-              :hover="homeOnTop
+              :hover="pageOnTop
               ? 'secondary'
               : 'muted'"
               no-caps
@@ -38,7 +38,7 @@
                   dense
                   flat
                   :ripple="false"
-                  :toggle-color="homeOnTop
+                  :toggle-color="pageOnTop
                   ? 'secondary'
                   : 'muted'"
                   :options="localeOptions">
@@ -62,14 +62,14 @@ import NavLink from 'components/navigation/NavLink.vue'
 export default {
   name: 'NavBar',
   components: { NavLink },
-  props: ['path', 'offset', 'homeOnTop'],
+  props: ['path', 'offset', 'pageOnTop'],
   data () {
     return {
       label: document.title,
       links: [
         { to: '/' },
         { to: '/projects' },
-        // { to: '/about-us' },
+        { to: '/about' },
         { to: '/contact' },
         { to: '/sign-up' }
       ],
@@ -98,8 +98,9 @@ export default {
       })
       this.links[0].label = this.$t('label.navLink.home')
       this.links[1].label = this.$t('label.navLink.projects')
-      this.links[2].label = this.$t('label.navLink.contact')
-      this.links[3].label = this.$t('label.navLink.signUp')
+      this.links[2].label = this.$t('label.navLink.about')
+      this.links[3].label = this.$t('label.navLink.contact')
+      this.links[4].label = this.$t('label.navLink.signUp')
       const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
       if (isLoggedIn) {
         this.links[this.links.length - 1]
@@ -129,13 +130,13 @@ $transition: transform 0.35s linear
 $transform-origin: left
 $transform-style: flat
 
-.home-brand
+.page-top-brand
   transition: $transition
   transform-origin: $transform-origin
   transform-style: $transform-style
   transform: scale(1)
 
-.home-brand-shrink
+.page-brand-shrink
   transition: $transition
   transform-origin: $transform-origin
   transform-style: $transform-style

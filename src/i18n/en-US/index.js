@@ -24,6 +24,13 @@ export default {
       h6: 'Building a better planet together',
       buttonLabel: 'View projects'
     },
+    aboutCard: {
+      aboutLabel: 'Who we are',
+      aboutText: 'GreenFunds is a team of six students from the American University in Bulgaria (AUBG). United around the idea of contributing to Bulgaria’s sustainable development through a platform for financial support and investment in green projects, we allow non-government institutions to quickly and easily raise funds from individual patrons. ',
+      aim: 'Our aim',
+      aim_subtext: 'GreenFunds is a team of six students from the American University in Bulgaria (AUBG). United around the idea of contributing to Bulgaria’s sustainable development through a platform for financial support and investment in green projects, we allow non-government institutions to quickly and easily raise funds from individual patrons. ',
+      vision: 'Our purpose is to enable anyone to help the protection of the planet.'
+    },
     projectCard: {
       termLabel: 'Term',
       termMonths: 'months',
@@ -50,6 +57,7 @@ export default {
       home: 'Home',
       projects: 'Projects',
       contact: 'Contact us',
+      about: 'About us',
       signUp: 'Sign up',
       profile: 'Profile'
     },
@@ -77,6 +85,9 @@ export default {
     },
     marketplace: {
       availableProjects: 'Available projects'
+    },
+    teamListCard: {
+      learnMore: 'Learn more'
     }
   },
   error: {
