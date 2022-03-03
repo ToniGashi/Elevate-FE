@@ -5,11 +5,10 @@
             @scroll="determineOffset">
     <!-- Be sure to play with the Layout demo on docs -->
 
-    <q-header id="header"
-              :elevated="path !== '/' && path !=='/about'">
+    <q-header id="header">
 
     <header-card v-if="path === '/'"/>
-    <about-card v-if="path === '/about'"/>
+    <about-card v-else-if="path === '/about'"/>
 
     <nav-bar id="nav-bar"
              :class="[
@@ -61,7 +60,7 @@ export default {
   computed: {
 
     pageOnTop () {
-      return ((this.path === '/' || this.path === '/about') && this.offset === 0)
+      return this.path === '/' && this.offset === 0
     },
 
     path () {
@@ -90,7 +89,7 @@ export default {
   height: 88px
 
 .sign-up
-  background: linear-gradient($secondary, $tertiary)
+  background: #486e5e
 
 @keyframes fadeIn
  from
@@ -100,7 +99,7 @@ export default {
 
 .contact-page
   position: relative
-  background: rgba(0, 0, 0, 0.7)
+  background: rgba(0, 0, 0, 0.6)
 
 .contact-page:after
   content: ""

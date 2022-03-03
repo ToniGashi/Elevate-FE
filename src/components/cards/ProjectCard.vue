@@ -1,5 +1,5 @@
 <template>
-  <q-card class="bg-grey-2 full-width q-pa-xl"
+  <q-card class="bg-grey-2 full-width q-pa-xl text-primary"
           square
           flat>
     <q-card-section class="text-left">

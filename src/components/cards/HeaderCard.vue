@@ -57,7 +57,7 @@ export default {
   padding-top: 10.5rem
   padding-bottom: 6rem
   position: relative
-  background: rgba(0, 0, 0, 0.2)
+  background: rgba(0, 0, 0, 0.3)
 
 #header-card:after
   content: ""

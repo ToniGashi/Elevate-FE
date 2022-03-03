@@ -5,7 +5,7 @@
             square
             class="bg-grey-1">
       <q-card-section>
-        <div class="text-h5 text-weight-bold text-left text-blue-grey-9">
+        <div class="text-h5 text-weight-bold text-left text-primary">
           {{$t('label.homePage.activeProjects')}}
         </div>
       </q-card-section>

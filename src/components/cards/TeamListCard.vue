@@ -1,8 +1,11 @@
 <template>
   <div class="card-box text-center">
-    <div class="user-pic">
-      <q-img :src="teamMemberImg" class="img-fluid" alt="user pic"></q-img>
-    </div>
+      <q-img :src="teamMemberImg"
+             class= "user-pic overflow-hidden"
+             width="150px"
+             height="150px"
+             alt="user pic">
+      </q-img>
     <h4 class="text-weight-bold">{{currentObject.fullName}}</h4>
     <h6 class="text-weight-bold">{{currentObject.job}}</h6>
     <q-separator spaced/>
@@ -30,15 +33,12 @@ export default {
 
 <style lang="sass" scoped>
 .user-pic
-  width: 150px
-  height: 150px
-  overflow: hidden
   border-radius: 100%
   margin: 20px auto 20px
   border-left: 3px solid #ddd
   border-right: 3px solid #ddd
-  border-top: 3px solid #007bff
-  border-bottom: 3px solid #007bff
+  border-top: 3px solid $primary
+  border-bottom: 3px solid $primary
   transition: 0.5s
 
 .card-box:hover .user-pic
@@ -53,5 +53,5 @@ export default {
   transition: 0.5s
 
 .card-box:hover
-  border: 1px solid #007bff
+  border: 1px solid $primary
 </style>
