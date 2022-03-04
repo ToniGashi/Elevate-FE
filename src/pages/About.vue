@@ -1,38 +1,60 @@
 <template>
   <q-card flat
           square
-          dark
-          id="about-us">
+          id="about-us"
+          class="text-primary">
 
-    <div id="content-container"
-        class="text-no-wrap">
+      <q-card-section class="row flex-center">
 
-      <q-card-section class="row justify-between">
+          <q-img src='~/assets/about-us-2.png'
+                 style="max-width: 30rem"
+                 class="col-lg-5"
+                 no-spinner/>
 
-        <div class="col-lg-4 col-md-6">
-          <q-img src='~/assets/about-us-2.png' width="30rem" no-spinner/>
+        <div class="col-lg-7 col-sm-12 text-h5 q-mx-auto">
+
+        <div class="text-weight-bold">
+          {{$t('label.aboutCard.aim')}}
         </div>
 
-        <div class="text-h3 col-lg-6 text-weight-bold" :style="{'white-space': 'pre-line', 'color':'rgba(25,83,69,1)'}">
-          {{$t('label.aboutCard.aim')}}
-          <h5 class="q-mt-lg text-weight-bold">{{$t('label.aboutCard.aim_subtext')}}</h5>
+        <div class="q-mt-md text-weight-medium">
+          {{$t('label.aboutCard.aim_subtext')}}
+        </div>
+
         </div>
 
       </q-card-section>
-    </div>
 
-    <div id="vision" class="q-mt-xl">
+    <q-card-section id="vision"
+                    class="q-mt-sm text-center">
 
-      <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
+      <q-separator class="q-mx-auto"
+                   style="height:0.3rem;
+                   width: 75%"
+                   color="primary"
+                   spaced/>
 
-      <h3 class="q-mt-xl q-mb-xl text-weight-bold" style="color:rgba(25,83,69,1); text-align:center;">{{$t('label.aboutCard.vision')}}</h3>
+      <div class="text-weight-bold text-h3 q-my-xl">
+        {{$t('label.aboutCard.vision')}}
+      </div>
 
-      <q-separator color="green-10" spaced style="height:0.3rem; width:30rem; margin:auto"/>
+      <q-separator class="q-mx-auto"
+                   style="height:0.3rem;
+                   width: 75%;"
+                   color="primary"
+                   spaced/>
 
-    </div>
-      <q-card-section class="q-mt-xl" style="color:rgba(25,83,69,1)">
+    </q-card-section>
+
+      <q-card-section class="q-mt-lg text-center">
+
+        <div class="text-weight-bold text-h3 q-mb-lg">
+          {{$t('label.aboutCard.team')}}
+        </div>
+
         <standard-grid :data="teamList"
                        :component="teamListCard"/>
+
       </q-card-section>
   </q-card>
 </template>
@@ -42,7 +64,7 @@ import StandardGrid from 'components/grids/StandardGrid.vue'
 import { defineAsyncComponent, shallowRef } from 'vue'
 
 export default {
-  name: 'AboutUs',
+  name: 'About',
   components: { StandardGrid },
   data () {
     return {
@@ -106,15 +128,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-#about-us
-  padding-top: 10.5rem
-  padding-bottom: 6rem
-  position: relative
-  background: $white
-
-#content-container
-  margin-left: 9rem
-  margin-right: 5%
-</style>

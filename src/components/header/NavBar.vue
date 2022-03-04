@@ -4,8 +4,8 @@
     <nav-link :class="[
               'nav-link',
               { 'page-top-brand': pageOnTop },
-              { 'page-brand-shrink': ((path === '/' || path === '/about') && offset !== 0) },
-              { 'regular-brand': (path !== '/' && path !== '/about') }
+              { 'page-brand-shrink': path === '/' && offset !== 0 },
+              { 'regular-brand': path !== '/' }
               ]"
               init-color="secondary"
               size="lg"
@@ -24,10 +24,8 @@
               init-color="white"
               stretch
               flat
-              :hover="pageOnTop
-              ? 'secondary'
-              : 'muted'"
-              no-caps
+              hover="secondary"
+              :no-caps="false"
               :to="link.to"
               :label="link.label"/>
 
@@ -38,9 +36,7 @@
                   dense
                   flat
                   :ripple="false"
-                  :toggle-color="pageOnTop
-                  ? 'secondary'
-                  : 'muted'"
+                  toggle-color="secondary"
                   :options="localeOptions">
 
       <template v-slot:bg>

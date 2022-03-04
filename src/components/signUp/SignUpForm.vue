@@ -1,13 +1,13 @@
 <template>
-  <q-page class="row justify-center items-center">
+  <q-page class="row flex-center">
     <div v-if="!form.isInRegister"
          class="column q-pa-lg">
       <div class="row">
         <q-card square
-                class="shadow-24"
+                class="shadow-5"
                 style="width:20vw">
 
-          <q-card-section class="bg-green-7">
+          <q-card-section class="bg-secondary">
             <h4 class="text-h5 text-white q-my-md">
               {{$t('label.signUpForm.h5')}} GreenFunds
             </h4>
@@ -16,7 +16,7 @@
               <q-btn @click="form.isInRegister=true"
                      fab
                      icon="add"
-                     color="green-5" />
+                     color="secondary"/>
             </div>
           </q-card-section>
 
@@ -60,7 +60,7 @@
           <q-card-actions class="q-px-lg">
             <q-btn unelevated
                    size="lg"
-                   color="green-5"
+                   color="secondary"
                    class="full-width text-white"
                    :label="$t('label.signUpForm.logInButton')"
                    @click="submitLogIn"
@@ -82,9 +82,9 @@
          class="column q-pa-lg">
       <div class="row">
         <q-card square
-                class="shadow-24"
+                class="shadow-5"
                 style="width:20vw">
-          <q-card-section class="bg-green-7">
+          <q-card-section class="bg-secondary">
             <h4 class="text-h5 text-white q-my-md">
               {{$t('label.signUpForm.registration')}}
             </h4>
@@ -92,7 +92,7 @@
                  style="transform: translateY(50%); z-index:1">
               <q-btn @click="form.isInRegister=false"
                      fab icon="close"
-                     color="green-5"/>
+                     color="secondary"/>
             </div>
           </q-card-section>
           <q-card-section>
@@ -175,7 +175,7 @@
           <q-card-actions class="q-px-lg">
             <q-btn unelevated
                    size="lg"
-                   color="green-5"
+                   color="secondary"
                    class="full-width text-white"
                    :label="$t('label.signUpForm.signUpButton')"
                    @click="submitRegister"
@@ -286,7 +286,7 @@ export default {
 
 <style lang="sass" scoped>
 .error-message
-  color: #ba3939
+  color: $negative
   background: #ffe0e0
   margin-left: 20px
   margin-right: 20px
