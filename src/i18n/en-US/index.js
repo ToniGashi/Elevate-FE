@@ -77,16 +77,18 @@ export default {
     },
     marketplace: {
       availableProjects: 'Available projects'
+    },
+    loading: {
+      sendMessage: 'Sending your message'
     }
   },
   error: {
     enterNames: 'Please, enter your names',
-    enterEmail: 'Please, enter your email',
-    enterMessage: 'Please, enter your message',
+    enterMessage: 'The message must consist of at least 6 characters',
     enterFirstName: 'Please, enter your name',
     enterLastName: 'Please, enter your last name',
-    invalidEmail: 'Invalid email',
-    invalidPassword: 'The password must consist of at least 6 symbols',
+    invalidEmail: 'Please, enter a valid email',
+    invalidPassword: 'The password must consist of at least 6 characters',
     invalidConfirmPassword: 'Passwords must match',
     wrongCredentials: 'Wrong credentials',
     error404: 'Page not found...'

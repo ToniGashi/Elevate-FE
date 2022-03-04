@@ -77,15 +77,17 @@ export default {
     },
     marketplace: {
       availableProjects: 'Налични проекти'
+    },
+    loading: {
+      sendMessage: 'Съобщението ви се изпраща'
     }
   },
   error: {
     enterNames: 'Моля, въведете вашите имена',
-    enterEmail: 'Моля, въведете вашия имейл',
-    enterMessage: 'Моля, въведете вашето съобщение',
+    enterMessage: 'Съобщението трябва да се състои от поне 6 символа',
     enterFirstName: 'Моля, попълнете полето Име',
     enterLastName: 'Моля, попълнете полето Фамилия',
-    invalidEmail: 'Невалиден имейл',
+    invalidEmail: 'Моля, въведете валиден имейл',
     invalidPassword: 'Паролата трябва да се състои от поне 6 символа',
     invalidConfirmPassword: 'Паролите трябва да съвпадат',
     wrongCredentials: 'Невалиден имейл или парола',
