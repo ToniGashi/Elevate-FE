@@ -5,10 +5,17 @@ export async function getUsers (context) {
     })
 }
 
-export function setCurrentUser (context, currentUser) {
-  context.commit('setCurrentUser', currentUser.user)
+export async function setCurrentUser (context, id) {
+  await this.$axios.get(`/api/users/${id}`)
+    .then(response => {
+      context.commit('setCurrentUser', response.data)
+    })
 }
 
-export function setLoggedInStatus (context, loggedInStatus) {
-  context.commit('setLoggedInStatus', loggedInStatus)
+export function logInCurrentUser (context, user) {
+  context.commit('setCurrentUser', user)
+}
+
+export function logOutCurrentUser (context) {
+  context.commit('setCurrentUser', {})
 }

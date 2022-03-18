@@ -1,8 +1,9 @@
+import { boot } from 'quasar/wrappers'
 import { createI18n } from 'vue-i18n'
 import { Quasar, Cookies } from 'quasar'
 import messages from 'src/i18n'
 
-export default async ({ app, ssrContext }) => {
+export default boot(async ({ app, ssrContext }) => {
   const langIso = Cookies.has('locale')
     ? Cookies.get('locale') : 'bg'
   try {
@@ -22,4 +23,4 @@ export default async ({ app, ssrContext }) => {
   } catch (error) {
     console.log(error)
   }
-}
+})

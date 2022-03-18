@@ -78,7 +78,7 @@ export default {
   created () {
     this.$watch(() => [
       this.$i18n.locale,
-      this.$store.getters['users/getCurrentUser'].isLoggedIn
+      this.$store.getters['users/getCurrentUser']
     ],
     () => {
       import(
@@ -97,10 +97,11 @@ export default {
       this.links[2].label = this.$t('label.navLink.about')
       this.links[3].label = this.$t('label.navLink.contact')
       this.links[4].label = this.$t('label.navLink.signUp')
-      const isLoggedIn = window.localStorage.getItem('isLoggedIn') === 'true'
-      if (isLoggedIn) {
+      const loggedUser = window.localStorage.getItem('loggedUser')
+      if (loggedUser) {
+        const userObject = JSON.parse(loggedUser)
         this.links[this.links.length - 1]
-          .to = '/profile'
+          .to = `/users/${userObject.id}`
         this.links[this.links.length - 1]
           .label = this.$t('label.navLink.profile')
       } else {

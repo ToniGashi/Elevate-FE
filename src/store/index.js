@@ -2,7 +2,7 @@ import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 import users from './users'
 import projects from './projects'
-
+import notifications from './notifications'
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation;
@@ -16,7 +16,8 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       users,
-      projects
+      projects,
+      notifications
     },
 
     // enable strict mode (adds overhead!)

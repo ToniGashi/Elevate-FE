@@ -3,7 +3,8 @@
          :padding="padding"
          :type="type"
          :unelevated="unelevated"
-         :color="color">
+         :color="color"
+         :disable="disable">
 
     <div :class="labelClass">
       {{label}}
@@ -43,6 +44,10 @@ export default {
     labelClass: {
       default: 'text-weight-regular',
       type: String
+    },
+    disable: {
+      default: false,
+      type: Boolean
     }
   }
 }

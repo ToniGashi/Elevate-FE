@@ -14,6 +14,22 @@
 .bg-tertiary
   background: $tertiary
 
+.text-placeholder
+  color: $placeholder
+
+.bg-placeholder
+  background: $placeholder
+
+// Errors
+
+.error-message
+  background: #ffe0e0
+  color: $negative
+  margin-left: 20px
+  margin-right: 20px
+
+// Forms
+
 .form-input::placeholder
   color: $placeholder
 
@@ -26,3 +42,25 @@
 .body-font-family
   font-family: $body-font-family
   font-weight: $body-font-weight
+
+// Animations
+
+@keyframes slideIn
+  0%
+    transform: translateY(100%)
+  100%
+    transform: translateY(0)
+
+@keyframes slideOut
+  0%
+    transform: translateY(0)
+  100%
+    transform: translateY(100%)
+
+.slideIn
+  transform-origin: bottom
+  animation: slideIn 0.1s linear
+
+.slideOut
+  transform-origin: top
+  animation: slideOut 0.1s linear
