@@ -59,7 +59,7 @@ export default {
       projects: 'Проекти',
       contact: 'Контакти',
       about: 'За нас',
-      signUp: 'Вход',
+      signUp: 'Регистрация',
       profile: 'Потребителски профил'
     },
     signUpForm: {
@@ -68,12 +68,12 @@ export default {
       password: 'Парола',
       logInButton: 'Влез',
       signUpButton: 'Регистрирай се',
-      forgottenPassword: 'Забравена парола',
+      toSignUp: 'Обратно към страницата за регистрация',
       confirmPassword: 'Повтори парола',
       registration: 'Регистрация',
       name: 'Име',
       lastName: 'Фамилия',
-      backToLogIn: 'Обратно към страницата за вход'
+      toLogIn: 'Към страницата за вход'
     },
     errorPage: {
       buttonLabel: 'Обратно към началната страница'
@@ -89,18 +89,22 @@ export default {
     },
     teamListCard: {
       learnMore: 'Научете повече'
+    },
+    notification: {
+      successMessage: 'Съобщението ви беше изпратено успешно',
+      failureMessage: 'Възникна грешка при изпращането на съобщението',
+      wrongCredentials: 'Грешен имейл или парола',
+      alreadyRegistered: 'Потребител с този имейл вече е регистриран'
     }
   },
   error: {
     enterNames: 'Моля, въведете вашите имена',
-    enterEmail: 'Моля, въведете вашия имейл',
-    enterMessage: 'Моля, въведете вашето съобщение',
+    enterMessage: 'Съобщението трябва да се състои от поне 6 символа',
     enterFirstName: 'Моля, попълнете полето Име',
     enterLastName: 'Моля, попълнете полето Фамилия',
-    invalidEmail: 'Невалиден имейл',
+    invalidEmail: 'Моля, въведете валиден имейл',
     invalidPassword: 'Паролата трябва да се състои от поне 6 символа',
     invalidConfirmPassword: 'Паролите трябва да съвпадат',
-    wrongCredentials: 'Невалиден имейл или парола',
     error404: 'Страницата не е намерена...'
   },
   date: {

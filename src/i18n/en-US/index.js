@@ -68,12 +68,12 @@ export default {
       password: 'Password',
       logInButton: 'Log in',
       signUpButton: 'Sign up',
-      forgottenPassword: 'Forgot your password',
+      toSignUp: 'Return to the sign up page',
       confirmPassword: 'Re-enter password',
       registration: 'Registration',
       name: 'Name',
       lastName: 'Last name',
-      backToLogIn: 'Return to the login page'
+      toLogIn: 'To the login page'
     },
     errorPage: {
       buttonLabel: 'Return to the home page'
@@ -89,18 +89,22 @@ export default {
     },
     teamListCard: {
       learnMore: 'Learn more'
+    },
+    notification: {
+      successMessage: 'Your message was sent successfully',
+      failureMessage: 'An error occurred while sending the message',
+      wrongCredentials: 'Wrong credentials',
+      alreadyRegistered: 'A user with this email already exists'
     }
   },
   error: {
     enterNames: 'Please, enter your names',
-    enterEmail: 'Please, enter your email',
-    enterMessage: 'Please, enter your message',
+    enterMessage: 'The message must consist of at least 6 characters',
     enterFirstName: 'Please, enter your name',
     enterLastName: 'Please, enter your last name',
-    invalidEmail: 'Invalid email',
-    invalidPassword: 'The password must consist of at least 6 symbols',
+    invalidEmail: 'Please, enter a valid email',
+    invalidPassword: 'The password must consist of at least 6 characters',
     invalidConfirmPassword: 'Passwords must match',
-    wrongCredentials: 'Wrong credentials',
     error404: 'Page not found...'
   },
   date: {

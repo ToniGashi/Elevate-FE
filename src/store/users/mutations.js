@@ -3,9 +3,5 @@ export function setUsers (state, payload) {
 }
 
 export function setCurrentUser (state, payload) {
-  state.currentUser = { ...payload, isLoggedIn: true }
-}
-
-export function setLoggedInStatus (state, payload) {
-  state.currentUser.isLoggedIn = payload
+  state.currentUser = { ...payload }
 }

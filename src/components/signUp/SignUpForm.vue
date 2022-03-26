@@ -1,204 +1,188 @@
 <template>
-  <q-page class="row flex-center">
-    <div v-if="!form.isInRegister"
-         class="column q-pa-lg">
-      <div class="row">
-        <q-card square
-                class="shadow-5"
-                style="width:20vw">
-
+  <div>
+    <q-form v-if="form.isInRegister"
+            @submit="submitRegister"
+            class="q-mx-auto shadow-5">
+      <q-card square >
+        <q-card-section class="bg-secondary">
+          <div class="text-h5 text-white q-my-md">
+            {{$t('label.signUpForm.registration')}}
+          </div>
+        </q-card-section>
+        <q-card-section class="q-gutter-y-sm">
+          <q-input outlined
+                   color="secondary"
+                   label-color="placeholder"
+                   v-model="v$.form.firstName.$model"
+                   type="text"
+                   :label="$t('label.signUpForm.name')">
+            <template v-slot:prepend>
+              <q-icon name="person"
+                      color="placeholder"/>
+            </template>
+          </q-input>
+          <div v-if="v$.form.firstName.$invalid"
+               class="error-message">
+            {{$t('error.enterFirstName')}}
+          </div>
+          <q-input outlined
+                   color="secondary"
+                   label-color="placeholder"
+                   v-model="v$.form.lastName.$model"
+                   type="text"
+                   :label="$t('label.signUpForm.lastName')">
+            <template v-slot:prepend>
+              <q-icon name="person"
+                      color="placeholder"/>
+            </template>
+          </q-input>
+          <div v-if="v$.form.lastName.$invalid"
+               class="error-message">
+            {{$t('error.enterLastName')}}
+          </div>
+          <q-input outlined
+                   color="secondary"
+                   label-color="placeholder"
+                   v-model="v$.form.email.$model"
+                   type="email"
+                   :label="$t('label.signUpForm.email')">
+            <template v-slot:prepend>
+              <q-icon name="email"
+                      color="placeholder"/>
+            </template>
+          </q-input>
+          <div v-if="v$.form.email.$invalid"
+               class="error-message">
+            {{$t('error.invalidEmail')}}
+          </div>
+          <q-input outlined
+                   color="secondary"
+                   label-color="placeholder"
+                   v-model="v$.form.password.$model"
+                   type="password"
+                   :label="$t('label.signUpForm.password')">
+            <template v-slot:prepend>
+              <q-icon name="lock"
+                      color="placeholder"/>
+            </template>
+          </q-input>
+          <div v-if="v$.form.password.$invalid"
+               class="error-message">
+            {{$t('error.invalidPassword')}}
+          </div>
+          <q-input outlined
+                   color="secondary"
+                   label-color="placeholder"
+                   v-model="v$.form.confirmPassword.$model"
+                   type="password"
+                   :label="$t('label.signUpForm.confirmPassword')">
+            <template v-slot:prepend>
+              <q-icon name="lock"
+                      color="placeholder"/>
+            </template>
+          </q-input>
+          <div v-if="v$.form.confirmPassword.$invalid"
+               class="error-message">
+            {{$t('error.invalidConfirmPassword')}}
+          </div>
+        </q-card-section>
+        <q-card-actions class="text-center q-px-md"
+                        align="center"
+                        vertical>
+          <standard-button :disable="v$.form.email.$invalid ||
+                           v$.form.password.$invalid ||
+                           v$.form.confirmPassword.$invalid ||
+                           v$.form.firstName.$invalid ||
+                           v$.form.lastName.$invalid ||
+                           (!form.email || !form.password ||
+                           !form.confirmPassword || !form.firstName ||
+                           !form.lastName)"
+                           size="lg"
+                           padding="sm 40px"
+                           type="submit"
+                           unelevated
+                           color="secondary"
+                           label-class="text-weight-bold"
+                           :label="$t('label.signUpForm.signUpButton')"/>
+          <div class="text-grey-6 cursor-pointer q-mt-md"
+               @click="form.isInRegister=false">
+            {{$t('label.signUpForm.toLogIn')}}
+          </div>
+        </q-card-actions>
+      </q-card>
+    </q-form>
+    <q-form v-else
+            @submit="submitLogIn"
+            class="q-mx-auto standard-form shadow-5">
+        <q-card square >
           <q-card-section class="bg-secondary">
-            <h4 class="text-h5 text-white q-my-md">
+            <div class="text-h5 text-white q-my-md">
               {{$t('label.signUpForm.h5')}} GreenFunds
-            </h4>
-            <div class="absolute-bottom-right q-pr-md"
-                 style="transform: translateY(50%); z-index:1">
-              <q-btn @click="form.isInRegister=true"
-                     fab
-                     icon="add"
-                     color="secondary"/>
             </div>
           </q-card-section>
-
-          <q-card-section>
-            <q-form autocomplete="off"
-                    class="q-px-sm q-pt-xl">
+          <q-card-section class="q-gutter-y-sm">
               <q-input outlined
                        color="secondary"
-                       :class="!v$.form.email.$invalid
-                       ? 'q-mb-sm' : ''"
+                       label-color="placeholder"
                        v-model="v$.form.email.$model"
                        type="email"
                        :label="$t('label.signUpForm.email')">
                 <template v-slot:prepend>
-                  <q-icon name="email" />
+                  <q-icon name="email"
+                          color="placeholder"/>
                 </template>
               </q-input>
-              <p v-if="v$.form.email.$invalid"
+              <div v-if="v$.form.email.$error"
                  class="error-message">
                 {{$t('error.invalidEmail')}}
-              </p>
+              </div>
               <q-input outlined
                        color="secondary"
+                       label-color="placeholder"
                        v-model="v$.form.password.$model"
                        type="password"
                        :label="$t('label.signUpForm.password')">
                 <template v-slot:prepend>
-                  <q-icon name="lock" />
+                  <q-icon name="lock"
+                          color="placeholder"/>
                 </template>
               </q-input>
-              <p v-if="v$.form.password.$invalid"
+              <div v-if="v$.form.password.$error"
                  class="error-message">
                 {{$t('error.invalidPassword')}}
-              </p>
-            </q-form>
+              </div>
           </q-card-section>
-          <p v-if="wrongCredentials"
-             class="error-message">
-            {{$t('error.wrongCredentials')}}
-          </p>
-          <q-card-actions class="q-px-lg">
-            <q-btn unelevated
-                   size="lg"
-                   color="secondary"
-                   class="full-width text-white"
-                   :label="$t('label.signUpForm.logInButton')"
-                   @click="submitLogIn"
-                   :disabled="v$.form.email.$invalid || v$.form.password.$invalid">
-            </q-btn>
-          </q-card-actions>
-
-          <q-card-section class="text-center q-pa-sm">
-            <p class="text-grey-6 cursor-not-allowed">
-              {{$t('label.signUpForm.forgottenPassword')}}?
-            </p>
-          </q-card-section>
-
-        </q-card>
-      </div>
-    </div>
-
-    <div v-if="form.isInRegister"
-         class="column q-pa-lg">
-      <div class="row">
-        <q-card square
-                class="shadow-5"
-                style="width:20vw">
-          <q-card-section class="bg-secondary">
-            <h4 class="text-h5 text-white q-my-md">
-              {{$t('label.signUpForm.registration')}}
-            </h4>
-            <div class="absolute-bottom-right q-pr-md"
-                 style="transform: translateY(50%); z-index:1">
-              <q-btn @click="form.isInRegister=false"
-                     fab icon="close"
-                     color="secondary"/>
+          <q-card-actions class="text-center q-px-md"
+                          align="center"
+                          vertical>
+            <standard-button :disable="v$.form.email.$invalid ||
+                             v$.form.password.$invalid ||
+                             (!form.email || !form.password)"
+                             size="lg"
+                             padding="sm 40px"
+                             type="submit"
+                             unelevated
+                             color="secondary"
+                             label-class="text-weight-bold"
+                             :label="$t('label.signUpForm.logInButton')"/>
+            <div class="text-grey-6 cursor-pointer q-mt-md"
+                 @click="form.isInRegister=true">
+              {{$t('label.signUpForm.toSignUp')}}
             </div>
-          </q-card-section>
-          <q-card-section>
-            <q-form class="q-px-sm q-pt-xl">
-              <q-input outlined
-                       color="secondary"
-                       :class="!v$.form.firstName.$invalid
-                       ? 'q-mb-sm' : ''"
-                       v-model="v$.form.firstName.$model"
-                       type="text"
-                       :label="$t('label.signUpForm.name')">
-                <template v-slot:prepend>
-                  <q-icon name="person" />
-                </template>
-              </q-input>
-              <p v-if="v$.form.firstName.$invalid"
-                 class="error-message">
-                {{$t('error.enterFirstName')}}
-              </p>
-              <q-input outlined
-                       color="secondary"
-                       :class="!v$.form.lastName.$invalid
-                       ? 'q-mb-sm' : ''"
-                       v-model="v$.form.lastName.$model"
-                       type="text"
-                       :label="$t('label.signUpForm.lastName')">
-                <template v-slot:prepend>
-                  <q-icon name="person" />
-                </template>
-              </q-input>
-              <p v-if="v$.form.lastName.$invalid"
-                 class="error-message">
-                {{$t('error.enterLastName')}}
-              </p>
-              <q-input outlined
-                       color="secondary"
-                       :class="!v$.form.email.$invalid
-                       ? 'q-mb-sm' : ''"
-                       v-model="v$.form.email.$model"
-                       type="email"
-                       :label="$t('label.signUpForm.email')">
-                <template v-slot:prepend>
-                  <q-icon name="email" />
-                </template>
-              </q-input>
-              <p v-if="v$.form.email.$invalid"
-                 class="error-message">
-                {{$t('error.invalidEmail')}}
-              </p>
-              <q-input outlined
-                       color="secondary"
-                       :class="!v$.form.password.$invalid
-                       ? 'q-mb-sm' : ''"
-                       v-model="v$.form.password.$model"
-                       type="password"
-                       :label="$t('label.signUpForm.password')">
-                <template v-slot:prepend>
-                  <q-icon name="lock" />
-                </template>
-              </q-input>
-              <p v-if="v$.form.password.$invalid"
-                 class="error-message">
-                {{$t('error.invalidPassword')}}
-              </p>
-              <q-input outlined
-                       color="secondary"
-                       v-model="v$.form.confirmPassword.$model"
-                       type="password"
-                       :label="$t('label.signUpForm.confirmPassword')">
-                <template v-slot:prepend>
-                  <q-icon name="lock" />
-                </template>
-              </q-input>
-              <p v-if="v$.form.confirmPassword.$invalid"
-                 class="error-message">
-                {{$t('error.invalidConfirmPassword')}}
-              </p>
-            </q-form>
-          </q-card-section>
-          <q-card-actions class="q-px-lg">
-            <q-btn unelevated
-                   size="lg"
-                   color="secondary"
-                   class="full-width text-white"
-                   :label="$t('label.signUpForm.signUpButton')"
-                   @click="submitRegister"
-                   :disabled="v$.form.$invalid" />
           </q-card-actions>
-          <q-card-section class="text-center q-pa-sm">
-            <div @click="form.isInRegister=false"
-                 class="text-grey-6 cursor-pointer">
-              {{$t('label.signUpForm.backToLogIn')}}
-            </div>
-          </q-card-section>
         </q-card>
-      </div>
-    </div>
-  </q-page>
+    </q-form>
+  </div>
 </template>
 
 <script>
+import StandardButton from 'components/buttons/StandardButton.vue'
 import useVuelidate from '@vuelidate/core'
 import { required, email, minLength, sameAs } from '@vuelidate/validators'
 
 export default {
   name: 'SignUpForm',
+  components: { StandardButton },
   setup () {
     return { v$: useVuelidate() }
   },
@@ -209,37 +193,58 @@ export default {
         lastName: '',
         email: '',
         password: '',
-        isInRegister: false,
+        isInRegister: true,
         confirmPassword: ''
       },
-      wrongCredentials: false
+      notificationMessage: '',
+      error: null
     }
   },
-  methods: {
-    async submitLogIn () {
-      /*
-       Refactoring idea: We should set an expiration date to isLoggedIn
-       in the local storage. Use Cookies/LocalStorage plugin.
-       */
-      try {
-        const dataLogIn = await this.$axios.post('/api/users/token', {
-          email: this.form.email,
-          password: this.form.password
-        })
-
-        if (dataLogIn.status === 200 || dataLogIn.status === 201) {
-          this.wrongCredentials = false
-          window.localStorage.clear()
-          window.localStorage.setItem('isLoggedIn', 'true')
-          await this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
-          await this.$router.push('/')
+  created () {
+    this.$watch(() => this.$i18n.locale,
+      () => {
+        if (this.error) {
+          if (this.error.response.status === 400) {
+            this.notificationMessage =
+              this.$t('label.notification.alreadyRegistered')
+          } else if (this.error.response.status === 401) {
+            this.notificationMessage =
+              this.$t('label.notification.wrongCredentials')
+          }
+          this.$store.dispatch('notifications/setMessage',
+            this.notificationMessage)
         }
-      } catch (error) {
-        this.wrongCredentials = true
-        console.log(error)
-      }
+      })
+  },
+  methods: {
+    resetRegisterForm () {
+      this.v$.$reset()
+      this.form.firstName = ''
+      this.form.lastName = ''
+      this.form.email = ''
+      this.form.password = ''
+      this.form.confirmPassword = ''
+    },
+    resetLogInForm () {
+      this.v$.$reset()
+      this.form.email = ''
+      this.form.password = ''
+    },
+    loginUser (user) {
+      window.localStorage.setItem('loggedUser', JSON.stringify(user))
+      this.$store.dispatch('users/logInCurrentUser', user)
+      this.$router.push('/')
+    },
+    displayNotification (message) {
+      this.notificationMessage = message
+      this.$store.dispatch('notifications/setMessage',
+        this.notificationMessage)
+      this.$store.dispatch('notifications/setType',
+        'failure')
+      this.$store.dispatch('notifications/toggleDisplay')
     },
     async submitRegister () {
+      this.$showLoader()
       try {
         const dataLogIn = await this.$axios.post('/api/users', {
           first_name: this.form.firstName,
@@ -247,15 +252,39 @@ export default {
           email: this.form.email,
           password: this.form.password
         })
-
         if (dataLogIn.status === 200 || dataLogIn.status === 201) {
-          window.localStorage.clear()
-          window.localStorage.setItem('isLoggedIn', 'true')
-          await this.$store.dispatch('users/setCurrentUser', dataLogIn.data)
-          await this.$router.push('/')
+          this.error = null
+          this.resetRegisterForm()
+          this.loginUser(dataLogIn.data.user)
         }
       } catch (error) {
-        console.log(error.message)
+        this.error = error
+        this.displayNotification(
+          this.$t('label.notification.alreadyRegistered')
+        )
+      } finally {
+        this.$hideLoader()
+      }
+    },
+    async submitLogIn () {
+      this.$showLoader()
+      try {
+        const dataLogIn = await this.$axios.post('/api/users/token', {
+          email: this.form.email,
+          password: this.form.password
+        })
+        if (dataLogIn.status === 200 || dataLogIn.status === 201) {
+          this.error = null
+          this.resetLogInForm()
+          this.loginUser(dataLogIn.data.user)
+        }
+      } catch (error) {
+        this.error = error
+        this.displayNotification(
+          this.$t('label.notification.wrongCredentials')
+        )
+      } finally {
+        this.$hideLoader()
       }
     }
   },
@@ -264,30 +293,34 @@ export default {
       form: {
         firstName: {
           required,
-          $lazy: false
+          $lazy: true
         },
         lastName: {
           required,
-          $lazy: false
+          $lazy: true
         },
         email: {
           required,
           email,
-          $lazy: false
+          $lazy: true
         },
-        password: { required, minLength: minLength(6), $lazy: false },
-        confirmPassword: { required, sameAsPassword: sameAs(this.form.password), $lazy: false }
-      },
-      $lazy: true
+        password: {
+          required,
+          minLength: minLength(6),
+          $lazy: true
+        },
+        confirmPassword: {
+          required,
+          sameAsPassword: sameAs(this.form.password),
+          $lazy: true
+        }
+      }
     }
   }
 }
 </script>
 
 <style lang="sass" scoped>
-.error-message
-  color: $negative
-  background: #ffe0e0
-  margin-left: 20px
-  margin-right: 20px
+.q-form
+  max-width: 370px
 </style>

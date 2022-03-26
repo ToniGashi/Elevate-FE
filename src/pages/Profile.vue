@@ -3,26 +3,21 @@
     <q-btn @click="signOut">
       {{$t('label.profile.logOut')}}
     </q-btn>
-    <p>{{this.$store.getters['users/getCurrentUser'].first_name}}
-      {{this.$store.getters['users/getCurrentUser'].last_name}}
-    </p>
-    <p></p>
   </q-page>
 </template>
 
 <script>
+import childFetcher from 'components/mixins/childFetcher.js'
 export default {
   name: 'Profile',
+  mixins: [childFetcher],
+  created () {
+    console.log(this.$store.getters['users/getCurrentUser'])
+  },
   methods: {
     signOut () {
-      window.localStorage.clear()
-      window.localStorage.setItem('isLoggedIn', 'false')
-      /*
-       Refactoring idea: Maybe instead of setting the logged in status,
-       we could set the user to an empty object. We need to clear the
-       user's data from the store at log out anyway
-       */
-      this.$store.dispatch('users/setLoggedInStatus', false)
+      window.localStorage.removeItem('loggedUser')
+      this.$store.dispatch('users/logOutCurrentUser')
       this.$router.push('/')
     }
   }

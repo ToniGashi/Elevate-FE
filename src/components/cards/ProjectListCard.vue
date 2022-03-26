@@ -117,24 +117,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-@keyframes slideIn
-  0%
-   transform: translateY(100%)
-  100%
-    transform: translateY(0)
-
-@keyframes slideOut
-  0%
-    transform: translateY(0)
-  100%
-    transform: translateY(100%)
-
-.slideIn
-  transform-origin: bottom
-  animation: slideIn 0.1s linear
-.slideOut
-  transform-origin: top
-  animation: slideOut 0.1s linear
-</style>

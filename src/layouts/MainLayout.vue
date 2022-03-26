@@ -28,6 +28,16 @@
 
       <Footer class="fit"/>
 
+      <transition appear
+                  enter-active-class="slideIn"
+                  leave-active-class="slideOut">
+
+      <StandardNotification v-if="$store.getters['notifications/getActive']"
+                            :message="$store.getters['notifications/getMessage']"
+                            :type="$store.getters['notifications/getType']"
+                            class="fixed-bottom q-mx-auto"/>
+      </transition>
+
     </q-footer>
 
     <q-page-container :class="[
@@ -47,9 +57,10 @@ import NavBar from 'components/header/NavBar.vue'
 import HeaderCard from 'components/cards/HeaderCard.vue'
 import Footer from 'components/footer/Footer.vue'
 import AboutCard from 'components/cards/AboutCard.vue'
+import StandardNotification from 'components/notifications/StandardNotification.vue'
 export default {
   name: 'MainLayout',
-  components: { AboutCard, Footer, HeaderCard, NavBar },
+  components: { StandardNotification, AboutCard, Footer, HeaderCard, NavBar },
   data () {
     return {
 

@@ -1,4 +1,5 @@
 <template>
+<q-page padding>
   <q-card flat
           square
           id="about-us"
@@ -57,6 +58,7 @@
 
       </q-card-section>
   </q-card>
+</q-page>
 </template>
 
 <script>
