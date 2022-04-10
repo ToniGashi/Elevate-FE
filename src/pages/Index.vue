@@ -1,16 +1,21 @@
 <template>
   <q-page padding>
-    <q-card v-if="projects && projects.length"
-            flat
+    <q-card flat
             square
-            class="bg-grey-1">
+            class="bg-grey-2">
       <q-card-section>
-        <div class="text-h5 text-weight-bold text-left text-primary">
+        <div class="text-h5 text-weight-bold text-primary">
           {{$t('label.homePage.activeProjects')}}
         </div>
       </q-card-section>
       <q-card-section>
-        <standard-grid :data="projects"
+        <div v-if="!projects.length"
+             class="text-center">
+        <q-spinner color="primary"
+                   size="lg"/>
+        </div>
+        <standard-grid v-else
+                       :data="projects"
                        :component="projectListCard"/>
       </q-card-section>
     </q-card>
@@ -35,11 +40,12 @@ export default {
     this.projectListCard = shallowRef(defineAsyncComponent(
       () => import('components/cards/ProjectListCard.vue')
     ))
-    const allProjects = [...this.$store.getters['projects/getProjects']]
-    if (allProjects && allProjects.length) {
-      this.projects.push(allProjects[0])
-      this.projects.push(allProjects[1])
-    }
+    this.$watch(
+      () => this.$store.getters['projects/getProjects'],
+      () => {
+        this.projects = [...this.$store.getters['projects/getProjects']]
+      }
+    )
   }
 }
 </script>

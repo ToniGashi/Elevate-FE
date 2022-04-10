@@ -104,6 +104,13 @@ module.exports = configure(function (ctx) {
           pathRewrite: {
             '^/api': ''
           }
+        },
+        '/country-api': {
+          target: process.env.COUNTRY_API,
+          changeOrigin: true,
+          pathRewrite: {
+            '^/country-api': ''
+          }
         }
       },
       open: true // opens browser window automatically

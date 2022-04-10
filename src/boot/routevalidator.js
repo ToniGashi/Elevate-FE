@@ -25,6 +25,9 @@ export default boot(({ router, store, redirect }) => {
                     next()
                   } else redirect('/page404')
                 })
+                .catch(error => {
+                  console.log(error)
+                })
             } else next()
           } else redirect('/page404')
         })

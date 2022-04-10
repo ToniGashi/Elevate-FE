@@ -6,44 +6,23 @@
           @mouseover="expanded = true"
           @mouseleave="expanded = false">
 
-    <q-img :src="currentObject.img"
+    <q-img src="https://images.unsplash.com/photo-1573376670774-4427757f7963"
            fit="cover"
-           :ratio="$q.screen.xl || $q.screen.lg? 16/9:
-           1">
-
-      <q-avatar class="absolute-top-right
-                text-weight-medium q-mt-xs q-mr-xs"
-                color="red-9"
-                :size="$q.screen.xl || $q.screen.lg? 'xl':
-                'lg'"
-                :font-size="$q.screen.xl || $q.screen.lg? '15px':
-                '12px'"
-                text-color="white">
-        <div class="absolute-center">
-          {{currentObject.interestRate}}
-        </div>
-      </q-avatar>
+           no-spinner
+           :ratio="16/9">
 
       <div class="absolute-bottom no-padding">
 
         <div :class="[
-             $q.screen.xl || $q.screen.lg? 'q-py-lg':
-             'q-py-md' ,
+             { 'q-py-xl': $q.screen.md || $q.screen.gt.md},
+             { 'q-py-lg': $q.screen.sm },
+             { 'q-py-md': $q.screen.xs },
+             $q.screen.xl || $q.screen.lg ? 'text-h6':
+             'text-subtitle2',
              'text-center'
              ]">
 
-        <div :class="[
-             $q.screen.xl || $q.screen.lg? 'text-h6':
-             'text-subtitle2',
-             { 'q-py-md': !currentObject.motto.length }
-             ]">
           {{currentObject.name}}
-        </div>
-
-        <div v-if="currentObject.motto.length"
-             class="text-overline">
-          {{currentObject.motto}}
-        </div>
 
         </div>
 
@@ -52,7 +31,7 @@
 
         <q-list id="project-list"
                 v-show="expanded"
-                dense
+                :dense="$q.screen.lt.lg"
                 separator
                 key="project-list"
                 :class="[
@@ -61,7 +40,6 @@
                 'text-no-wrap',
                 'text-primary',
                 'bg-white',
-                'text-left',
                 $q.screen.xl || $q.screen.lg? 'text-weight-bold':
                 'text-weight-medium'
                 ]">
@@ -73,18 +51,17 @@
             </q-item-section>
           </q-item>
 
-          <q-item key="project-term">
+          <q-item key="project-type">
             <q-item-section>
-              {{$t('label.projectListCard.termLabel')}}:
-              {{currentObject.term}}
-              {{$t('label.projectListCard.termMonths')}}
+              {{$t('label.projectListCard.type')}}:
+              {{currentObject.type}}
             </q-item-section>
           </q-item>
 
-          <q-item key="project-target">
+          <q-item key="project-date">
             <q-item-section>
-              {{$t('label.projectListCard.target')}}:
-              {{currentObject.targetAmount}}
+              {{$t('label.projectListCard.availableSince')}}:
+              {{computeDate(currentObject.createdAt)}}
             </q-item-section>
           </q-item>
 
@@ -100,9 +77,11 @@
 </template>
 
 <script>
+import dater from 'components/mixins/dater.js'
 export default {
   name: 'ProjectListCard',
   props: ['currentObject'],
+  mixins: [dater],
   data () {
     return {
       expanded: false

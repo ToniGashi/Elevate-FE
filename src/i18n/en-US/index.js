@@ -33,15 +33,24 @@ export default {
       team: 'Our Team'
     },
     projectCard: {
-      termLabel: 'Term',
-      termMonths: 'months',
-      buttonLabel: 'Donate to '
+      location: 'Location',
+      type: 'Type',
+      availableSince: 'Available since',
+      website: 'Website'
+    },
+    projectPanels: {
+      about: 'About',
+      goals: 'Goals',
+      business_model: 'Business Model',
+      history: 'History',
+      description: 'Description',
+      team: 'Team',
+      certifications: 'Certifications'
     },
     projectListCard: {
       location: 'Location',
-      termLabel: 'Term',
-      termMonths: 'months',
-      target: 'Target'
+      type: 'Type',
+      availableSince: 'Available since'
     },
     contactForm: {
       buttonLabel: 'Send message',
@@ -79,13 +88,13 @@ export default {
       buttonLabel: 'Return to the home page'
     },
     homePage: {
-      activeProjects: 'Active projects'
+      activeProjects: 'Active Projects'
     },
     profile: {
       logOut: 'Log out'
     },
     marketplace: {
-      availableProjects: 'Available projects'
+      availableProjects: 'Available Projects'
     },
     teamListCard: {
       learnMore: 'Learn more'
@@ -94,7 +103,8 @@ export default {
       successMessage: 'Your message was sent successfully',
       failureMessage: 'An error occurred while sending the message',
       wrongCredentials: 'Wrong credentials',
-      alreadyRegistered: 'A user with this email already exists'
+      alreadyRegistered: 'A user with this email already exists',
+      failureCountryFlag: 'An error occurred while obtaining the country flag'
     }
   },
   error: {

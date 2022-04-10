@@ -3,15 +3,17 @@
   <div v-for="(row, index) in grid"
        :key="index"
        :class="[
-       'row q-col-gutter-x-md',
+       'row',
+       'q-col-gutter-x-md',
+       'flex-center',
        { 'q-mb-md': index !==
        grid.length - 1 }
        ]">
 
     <div :class="[
-         { 'col-12': row.length === 1 },
-         { 'col-6' : row.length === 2 },
-         { 'col-4' : row.length === 3 }
+         { 'col-sm-8 col-xs-12': row.length === 1 },
+         { 'col-sm-6 col-xs-12': row.length === 2 },
+         { 'col-sm-4 col-xs-12': row.length === 3 }
          ]"
          v-for="entity in row"
          :key="entity.id">

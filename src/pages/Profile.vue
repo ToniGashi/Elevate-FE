@@ -11,9 +11,6 @@ import childFetcher from 'components/mixins/childFetcher.js'
 export default {
   name: 'Profile',
   mixins: [childFetcher],
-  created () {
-    console.log(this.$store.getters['users/getCurrentUser'])
-  },
   methods: {
     signOut () {
       window.localStorage.removeItem('loggedUser')

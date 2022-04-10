@@ -17,6 +17,12 @@ app.use('/api', createProxyMiddleware({
   pathRewrite: { '^/api': '' }
 }))
 
+app.use('/country-api', createProxyMiddleware({
+  target: process.env.COUNTRY_API,
+  changeOrigin: true,
+  pathRewrite: { '^/country-api': '' }
+}))
+
 // eslint-disable-next-line node/no-path-concat
 app.use(serveStatic(__dirname + '/dist/spa'))
 app.get('/*', function (req, res) {

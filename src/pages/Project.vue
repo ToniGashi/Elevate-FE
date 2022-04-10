@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <ProjectCard :current-project="currentObject"/>
+    <ProjectCard class="q-mb-none" :current-project="currentObject"/>
   </q-page>
 </template>
 

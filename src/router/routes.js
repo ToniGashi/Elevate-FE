@@ -14,7 +14,7 @@ const routes = [
         path: 'projects',
         component: () => import('pages/ProjectMarketplace.vue'),
         children: [
-          { path: ':id(\\d+)', component: () => import('pages/Project.vue') }
+          { path: ':id', component: () => import('pages/Project.vue') }
         ]
       },
       { path: 'about', component: () => import('pages/About.vue') },

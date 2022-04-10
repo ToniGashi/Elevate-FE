@@ -33,15 +33,24 @@ export default {
       team: 'Нашият Екип'
     },
     projectCard: {
-      termLabel: 'Продължителност',
-      termMonths: 'месеца',
-      buttonLabel: 'Дари на '
+      location: 'Локация',
+      type: 'Тип',
+      availableSince: 'Наличен от',
+      website: 'Уебсайт'
+    },
+    projectPanels: {
+      about: 'За',
+      goals: 'Цели',
+      business_model: 'Бизнес модел',
+      history: 'История',
+      description: 'Описание',
+      team: 'Екип',
+      certifications: 'Сертификация'
     },
     projectListCard: {
       location: 'Локация',
-      termLabel: 'Продължителност',
-      termMonths: 'месеца',
-      target: 'Цел'
+      type: 'Тип',
+      availableSince: 'Наличен от'
     },
     contactForm: {
       buttonLabel: 'Изпрати',
@@ -94,7 +103,8 @@ export default {
       successMessage: 'Съобщението ви беше изпратено успешно',
       failureMessage: 'Възникна грешка при изпращането на съобщението',
       wrongCredentials: 'Грешен имейл или парола',
-      alreadyRegistered: 'Потребител с този имейл вече е регистриран'
+      alreadyRegistered: 'Потребител с този имейл вече е регистриран',
+      failureCountryFlag: 'Възникна грешка при откриването на държавното знаме'
     }
   },
   error: {

@@ -1,16 +1,17 @@
 <template>
-  <q-card class="bg-grey-2 full-width q-pa-xl text-primary"
+  <q-card class="bg-grey-2 full-width q-pt-md
+          q-pb-sm q-px-md text-primary"
           square
           flat>
-    <q-card-section class="text-left">
-      <div class="row items-center q-mb-sm">
-      <div class="text-h2 text-weight-bold col-auto">
-        {{currentProject.name}}
-      </div>
-      <q-spinner v-if="isLoading"
-                 color="primary"
-                 class="col-auto on-right"
-                 size="sm"/>
+    <q-card-section class="q-px-none">
+      <div class="row items-center q-mb-none">
+        <div class="text-h2 text-weight-bold col-auto">
+          {{currentProject.name}}
+        </div>
+        <q-spinner v-if="isLoading"
+                   color="primary"
+                   class="col-auto on-right"
+                   size="sm"/>
         <q-avatar v-else
                   size="md"
                   square
@@ -19,111 +20,173 @@
                :alt="`flag of ${iconFile}`">
         </q-avatar>
       </div>
-      <div class="text-subtitle1 text-weight-medium
-           text-muted text-italic q-mb-sm">
-        {{currentProject.motto}}
-      </div>
-      <div class="text-body1">
-        {{currentProject.description}}
-      </div>
     </q-card-section>
 
-    <q-card-section class="row">
+    <q-card-section :class="[
+                    'row',
+                    'q-px-none',
+                    $q.screen.xl ||
+                    $q.screen.lg ?
+                    'q-gutter-x-xl':
+                    'q-gutter-y-lg'
+                    ]">
       <q-img :ratio="16/9"
              :class="[
              'col-lg-6',
-             'col-sm-12',
-             { 'q-mb-lg': $q.screen.sm }
+             'col-sm-12'
              ]"
-             :src="currentProject.img"/>
+             src="https://images.unsplash.com/photo-1573376670774-4427757f7963"/>
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
-                      q-pa-none justify-evenly q-mx-auto">
+                      no-padding justify-between text-h6">
         <div :class="[
-             'text-h6',
-             { 'q-mb-lg': $q.screen.sm }
+             'col-auto',
+             $q.screen.xl ||
+             $q.screen.lg ?
+             'q-mb-none' :
+             'q-mb-lg'
              ]">
-            {{$t('label.projectCard.termLabel')}}:
-          <span class="text-weight-regular">
-            {{currentProject.term}}
-            {{$t('label.projectCard.termMonths')}}
+            {{$t('label.projectCard.location')}}:
+          <span class="text-weight-bold">
+            {{currentProject.location}}
           </span>
         </div>
 
-      <div :class="[
+        <div :class="[
+             'col-auto',
+             $q.screen.xl ||
+             $q.screen.lg ?
+             'q-mb-none' :
+             'q-mb-lg'
+             ]">
+          {{$t('label.projectCard.type')}}:
+          <span class="text-weight-bold">
+            {{currentProject.type}}
+          </span>
+        </div>
+
+        <div :class="[
+             'col-auto',
+             $q.screen.xl ||
+             $q.screen.lg ?
+             'q-mb-none' :
+             'q-mb-lg'
+             ]">
+          {{$t('label.projectCard.availableSince')}}:
+          <span class="text-weight-bold">
+            {{date}}
+          </span>
+        </div>
+
+        <div class="col-auto q-mb-none">
+          {{$t('label.projectCard.website')}}:
+          <a href="https://images.unsplash.com/photo-1573376670774-4427757f7963"
+             target="_blank"
+             class="text-weight-bold">
+            {{currentProject.website}}
+          </a>
+        </div>
+
+<!--      <div :class="[
+           'col',
            'row',
-           'justify-between',
-           { 'q-mb-lg': $q.screen.sm }
+           'items-center',
+           'q-gutter-x-sm',
+           $q.screen.xl ||
+           $q.screen.lg ?
+           'q-mb-none' :
+           'q-mb-lg'
            ]">
         <q-linear-progress :value="progress"
                            color="secondary"
-                           size="lg"
-                           class="col-11"/>
+                           size="20px"
+                           class="col"/>
           <q-badge text-color="secondary"
-                   class="col-shrink"
-                   :label="currentProject.interestRate" />
-      </div>
+                   class="col-shrink text-weight-bold bg-muted"
+                   :label="currentProject.interestRate"/>
+      </div>-->
 
-        <standard-button class="full-width"
-                         size="1.5rem"
-                         padding="sm lg"
-                         unelevated
-                         color="secondary"
-                         label-class="text-weight-bold text-no-wrap"
-                         @click="trackDonationButton"
-                         :label="$t('label.projectCard.buttonLabel') +
-                         currentProject.name"/>
       </q-card-actions>
 
     </q-card-section>
+
+    <q-card-section class="q-px-none q-pb-none">
+
+      <ProjectPanels :current-project="currentProject"/>
+
+    </q-card-section>
+
   </q-card>
 </template>
 
 <script>
-import StandardButton from 'components/buttons/StandardButton.vue'
-import gtm from 'components/gtm.js'
+import ProjectPanels from 'components/cards/ProjectPanels.vue'
+import dater from 'components/mixins/dater.js'
+// import gtm from 'components/gtm.js'
 
 export default {
   name: 'ProjectCard',
   props: ['currentProject'],
-  components: { StandardButton },
+  components: { ProjectPanels },
+  mixins: [dater],
   data () {
     return {
       iconFile: '',
       isLoading: true,
-      progress: 0
+      date: '',
+      notificationMessage: '',
+      error: null
     }
   },
   created () {
     this.$watch(
-      () => [this.currentProject.interestRate,
-        this.currentProject.location],
-      () => {
-        if (this.currentProject.interestRate) {
-          this.progress = Number(this.currentProject.interestRate
-            .split('%')[0]) / 100
-        }
+      () => this.currentProject.location,
+      async () => {
         if (this.currentProject.location) {
-          this.iconFile = this.currentProject.location.split(', ')[1]
-            .toLowerCase()
-          this.isLoading = false
+          const countryName = this.currentProject.location.split(', ')[1]
+          await this.$axios.get(`/country-api/${countryName}`)
+            .then(response => {
+              this.error = null
+              this.iconFile = response.data.records[0].fields.iso2_code
+                .toLowerCase()
+              this.isLoading = false
+            })
+            .catch(error => {
+              this.error = error
+              this.notificationMessage =
+                this.$t('label.notification.failureCountryFlag')
+              this.$store.dispatch('notifications/setMessage',
+                this.notificationMessage)
+              this.$store.dispatch('notifications/setType',
+                'failure')
+              this.$store.dispatch('notifications/toggleDisplay')
+            })
         }
-      }
-    )
-  },
+      })
+    this.$watch(
+      () => [
+        this.$i18n.locale,
+        this.currentProject.createdAt
+      ],
+      () => {
+        if (this.currentProject.createdAt) {
+          this.date = this.computeDate(this.currentProject.createdAt)
+        }
+        if (this.error) {
+          this.notificationMessage =
+            this.$t('label.notification.failureCountryFlag')
+          this.$store.dispatch('notifications/setMessage',
+            this.notificationMessage)
+        }
+      })
+  } /*,
   methods: {
     trackDonationButton () {
       gtm.logEvent('tracking', 'donationTrack',
         'Donation Button clicked', 99.90,
         `/projects/${this.currentProject.id}`)
     }
-  }
+  } */
 }
 </script>
-
-<style lang="sass" scoped>
-.q-badge
-  background-color: #dcdcdc
-  height: 16px
-</style>
