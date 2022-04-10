@@ -1,13 +1,13 @@
-import projects from 'app/mockData.js'
 export async function getProjects (context) {
-  context.commit('setProjects', projects)
+  await this.$axios.get('/api/projects')
+    .then(response => {
+      context.commit('setProjects', response.data)
+    })
 }
 
 export async function setCurrentProject (context, id) {
-  const project = context.getters.getProjects
-    .find(project => Number(project.id) ===
-    Number(id))
-  if (project && Object.keys(project).length) {
-    context.commit('setCurrentProject', project)
-  }
+  await this.$axios.get(`/api/projects/${id}`)
+    .then(response => {
+      context.commit('setCurrentProject', response.data)
+    })
 }
