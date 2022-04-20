@@ -74,49 +74,33 @@ export default {
         {
           id: 0,
           fullName: 'Toni Gashi',
-          job: 'Chief Technology Officer',
-          image: 'img-1',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          job: 'Chief Executive Officer',
+          image: 'toni-gashi',
+          description: 'Hi, my name is Toni. I love long walks, ' +
+                       'especially when there is a beautiful view by my side. ' +
+                       'I enjoy solving hard problems and watching FRIENDS.',
           link: '/'
         },
         {
           id: 1,
-          fullName: 'Mihael Trifonov',
-          job: 'Chief Executive Officer',
-          image: 'img-2',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          fullName: 'Martin Mitev',
+          job: 'Chief Technology Officer',
+          image: 'martin-mitev',
+          description: 'Martin is a programmer, a student at AUBG, ' +
+                       'and an aspiring entrepreneur. He\'s known for ' +
+                       'his dedication and tendency to think big, ' +
+                       'demonstrated by his favorite quote: ' +
+                       '"I think, therefore I am."',
           link: '/'
         },
         {
           id: 2,
-          fullName: 'Martin Mitev',
-          job: 'Front-end Developer',
-          image: 'img-3',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          link: '/'
-        },
-        {
-          id: 3,
-          fullName: 'Vasi Stoyanov',
-          job: 'Chief Marketing Officer',
-          image: 'img-4',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          link: '/'
-        },
-        {
-          id: 4,
-          fullName: 'Marty Stanchev',
-          job: 'Chief Executive Officer',
-          image: 'img-5',
-          description: 'Lorem ipsum dolor sit ametel turpis.',
-          link: '/'
-        },
-        {
-          id: 5,
           fullName: 'Lazaron Shyta',
-          job: 'Back-end Developer',
-          image: 'img-6',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          job: 'Chief Information Officer',
+          image: 'lazaron-shyta',
+          description: 'Lazaron is a software engineer and a graduating student at AUBG. ' +
+                       'He has a competitive spirit when it comes to solving hard problems ' +
+                       'and is a fan of team work.',
           link: '/'
         }
       ],

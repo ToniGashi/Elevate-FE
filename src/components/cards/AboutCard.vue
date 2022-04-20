@@ -9,8 +9,8 @@
                       { 'card-padding': $q.screen.sm }
                       ]">
         <div :class="[
-             $q.screen.xl || $q.screen.lg ? 'text-h5':
-             'text-subtitle1',
+             $q.screen.xl || $q.screen.lg ? 'text-h4':
+             'text-h5',
              'col-lg-8',
              'col-sm-6'
              ]">
@@ -46,5 +46,4 @@ export default {
   background: #486e5e
 .card-padding
   padding-top: 5rem
-  padding-bottom: 1rem
 </style>

@@ -31,11 +31,12 @@
                     'q-gutter-y-lg'
                     ]">
       <q-img :ratio="16/9"
+             fit="scale-down"
              :class="[
              'col-lg-6',
              'col-sm-12'
              ]"
-             src="https://images.unsplash.com/photo-1573376670774-4427757f7963"/>
+             src="~assets/unboxd.png"/>
 
       <q-card-actions vertical
                       class="col-lg-5 col-sm-12
@@ -81,7 +82,7 @@
 
         <div class="col-auto q-mb-none">
           {{$t('label.projectCard.website')}}:
-          <a href="https://images.unsplash.com/photo-1573376670774-4427757f7963"
+          <a href="https://www.aubg.edu/accelerator/assets/img/teams/Unboxd%202.png"
              target="_blank"
              class="text-weight-bold">
             {{currentProject.website}}
