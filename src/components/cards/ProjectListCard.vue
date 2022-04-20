@@ -6,8 +6,8 @@
           @mouseover="expanded = true"
           @mouseleave="expanded = false">
 
-    <q-img src="https://images.unsplash.com/photo-1573376670774-4427757f7963"
-           fit="cover"
+    <q-img src="~assets/unboxd.png"
+           fit="scale-down"
            no-spinner
            :ratio="16/9">
 
